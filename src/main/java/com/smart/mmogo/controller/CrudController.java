@@ -1,5 +1,6 @@
 package com.smart.mmogo.controller;
 
+import com.smart.mmogo.bean.Command;
 import com.smart.mmogo.core.utils.StringU;
 import com.smart.mmogo.service.impl.CrudService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -35,14 +36,18 @@ public class CrudController {
 
     @RequestMapping("/jdbcCrud")
     @ResponseBody
-    public String jdbcCrud(HttpServletRequest req, HttpServletResponse res) {
+    public String jdbcCrud(HttpServletRequest req, HttpServletResponse res , Command command) {
         String script = req.getParameter("script");
 
         //script vaild
-        if(StringU.isEmpty(script)){
+        if(StringU.isEmpty(command.getDbName()) || StringU.isEmpty(command.getType()) ){
             return "please enter command";
         }
 
-        return crudService.getResult(script);
+        try {
+            return crudService.getResult(command);
+        }catch (Exception e) {
+            return "exception happened !! \n"+ e ;
+        }
     }
 }

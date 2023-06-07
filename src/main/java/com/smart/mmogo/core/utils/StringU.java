@@ -3,13 +3,9 @@ package com.smart.mmogo.core.utils;
 /*
  * String tools
  */
-public  class StringU {
+public class StringU {
     public static Boolean isEmpty(Object o) {
-        if (o == null || "".equals(o.toString())){
-            return true;
-        }else {
-            return false;
-        }
+        return o == null || "".equals(o.toString());
     }
 
     public static Boolean isNotEmpty(Object o) {

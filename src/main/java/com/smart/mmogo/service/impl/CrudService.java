@@ -1,5 +1,6 @@
 package com.smart.mmogo.service.impl;
 
+import com.smart.mmogo.bean.Command;
 import com.smart.mmogo.dao.impl.jdbcDaoImpl.MongoDBJDBC;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,13 +15,13 @@ public class CrudService {
     @Autowired
     static Logger logger = LoggerFactory.getLogger(CrudService.class);
 
-    public String getResult(String script){
+    public String getResult(Command command){
 
         try {
-            return mongoDBJDBC.getResult(script);
+            return mongoDBJDBC.getResult(command);
 
         }catch (Exception e){
-            logger.error("exception happened !! "+e.getMessage(),e);
+            logger.error("exception happened !! \n"+e.getMessage(),e);
 
             //transaction
             throw new RuntimeException(e);

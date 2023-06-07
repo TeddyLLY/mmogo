@@ -61,11 +61,26 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.mongodb</groupId>
-			<artifactId>mongo-java-driver</artifactId>
-			<version>3.2.2</version>
-		</dependency>
+		<!--ＤＢ＆ＤＲＩＶＥＲ 相容列表	https://www.mongodb.com/docs/drivers/java/sync/current/compatibility/-->
+		<!-- https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-core -->
+<!--		<dependency>-->
+<!--			<groupId>org.mongodb</groupId>-->
+<!--			<artifactId>mongodb-driver-core</artifactId>-->
+<!--			<version>4.9.0</version>-->
+<!--		</dependency>-->
+				<dependency>
+					<groupId>org.mongodb</groupId>
+					<artifactId>mongo-java-driver</artifactId>
+					<version>3.12.12</version>
+				</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync -->
+<!--		<dependency>-->
+<!--			<groupId>org.mongodb</groupId>-->
+<!--			<artifactId>mongodb-driver-sync</artifactId>-->
+<!--			<version>4.9.1</version>-->
+<!--		</dependency>-->
+
+
 
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
 		<dependency>
