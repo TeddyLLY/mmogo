@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class MainTest {
+public class UUIDTest {
     public static void main(String[] args) {
         Set<Long> uuid = new HashSet<>();
         for (int i = 0; i < 10000000 ; i++) {
