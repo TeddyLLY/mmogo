@@ -6,6 +6,7 @@ import com.smart.mmogo.service.impl.CrudService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,20 +35,22 @@ public class CrudController {
     }
 
 
-    @RequestMapping("/jdbcCrud")
+
+    @RequestMapping("/crud")
     @ResponseBody
+    @Deprecated
     public String jdbcCrud(HttpServletRequest req, HttpServletResponse res , Command command) {
-        String script = req.getParameter("script");
+//        String script = req.getParameter("script");
 
-        //script vaild
-        if(StringU.isEmpty(command.getDbName()) || StringU.isEmpty(command.getType()) ){
-            return "please enter command";
-        }
+        return crudService.getResult(command);
 
-        try {
+    }
+
+    @RequestMapping("/jsonCrud")
+    @ResponseBody
+    public String JsonJdbcCrud(@RequestBody Command command) {
+
             return crudService.getResult(command);
-        }catch (Exception e) {
-            return "exception happened !! \n"+ e ;
-        }
+
     }
 }

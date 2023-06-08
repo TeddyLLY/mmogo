@@ -1,5 +1,5 @@
 package com.smart.mmogo.core.constants;
 
-public class commonConst {
+public class CommonConst {
 
 }

@@ -1,2 +1,4 @@
 # MongoDB CRUD Java Demo
-With SpringMVC & SpringBoot
+Demo with SpringMVC & SpringBoot 
+
+    MongoDB 6.0.6 && java 17

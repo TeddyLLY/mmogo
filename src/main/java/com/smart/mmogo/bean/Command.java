@@ -1,6 +1,14 @@
 package com.smart.mmogo.bean;
 
 
+import org.bson.BsonArray;
+import org.bson.conversions.Bson;
+import org.json.simple.JSONArray;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Command {
 
     /*
@@ -17,11 +25,13 @@ public class Command {
 
     String dbName;
 
+    String collection;
+
     /*
      * 參數 基本上都是 Bson or BsonArray
      */
     Object filter ;
-    Object documents ;
+    JSONArray documents ;
     Object options ;
 
     public String getType() {
@@ -48,19 +58,27 @@ public class Command {
         this.filter = filter;
     }
 
-    public Object getDocuments() {
-        return documents;
-    }
-
-    public void setDocuments(Object documents) {
-        this.documents = documents;
-    }
-
     public Object getOptions() {
         return options;
     }
 
     public void setOptions(Object options) {
         this.options = options;
+    }
+
+    public String getCollection() {
+        return collection;
+    }
+
+    public void setCollection(String collection) {
+        this.collection = collection;
+    }
+
+    public JSONArray getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(JSONArray documents) {
+        this.documents = documents;
     }
 }
