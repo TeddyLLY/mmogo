@@ -2,6 +2,7 @@ package com.smart.mmogo.dao.impl;
 
 
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientOptions;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.smart.mmogo.bean.Command;
@@ -44,7 +45,7 @@ public class MongoJDBC {
 
 //          simple 连接到 mongodb 服务
 //----------------------------------------------------------------------------------------------------------------------------------------
-            MongoClient mongoClient = new MongoClient( "127.0.0.1" , 27017 );
+        MongoClient mongoClient = new MongoClient( "127.0.0.1" , 27017);
 
 
 

@@ -15,6 +15,10 @@ public class XsonU {
         List<Document> documents = new ArrayList<Document>();
         JSONArray jsonArray= command.getDocuments();
 
+        if(StringU.isEmpty(jsonArray)){
+            throw new RuntimeException("command id empty !") ;
+        }
+
         for(int i=0 ; i<jsonArray.size() ; i++ ){
             Document doc = new Document((Map<String, Object>) jsonArray.get(i)) ;
             documents.add(doc);

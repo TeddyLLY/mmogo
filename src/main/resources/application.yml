@@ -1,6 +1,6 @@
 # 设置服务器端口
 server:
-  port: 8084
+  port: 8085
 
 # 配置数据库连接
 spring:
@@ -15,7 +15,7 @@ spring:
       database: employee
       authentication-database: admin
       # ver 2.4以後
-#      uri: mongodb%3A//root:root:127.0.0.1:27017
+#      uri: mongodb://root:root:127.0.0.1:27017
       # ver 2.4前
       host: 127.0.0.1
       port: 27017
