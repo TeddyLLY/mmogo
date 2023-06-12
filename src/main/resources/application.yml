@@ -1,14 +1,23 @@
+###################################################################
 # 设置服务器端口
 server:
   port: 8085
 
-# 配置数据库连接
+
+###################################################################
 spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+# 配置数据库连接
 #MySQL
   datasource:
 #    url: jdbc:mysql://localhost:3306
     username: root
     password: "!QAZ2wsx"
+
 #MongoDB
   data:
     mongodb:
@@ -23,7 +32,7 @@ spring:
       password: root
 
 
-
+###################################################################
 # 日志设置
 logging:
   level:
@@ -32,7 +41,3 @@ logging:
     org.springframework.data.mongodb.core: DEBUG
 
 
-# 自定义应用程序设置
-#myapp:
-#  customSetting1: value1
-#  customSetting2: value2

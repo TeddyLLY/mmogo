@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "8b7065b1-473d-4aae-8d1a-e8809ac6efb9",
+		"name": "mmogoTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11995310",
+		"_collection_link": "https://universal-comet-723941.postman.co/workspace/Mongo~debd91bf-8b8d-4bc3-ba8d-02b98b60c65c/collection/11995310-8b7065b1-473d-4aae-8d1a-e8809ac6efb9?action=share&creator=11995310&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "json_insert",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "DNT",
+						"value": "1"
+					},
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Google Chrome\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dbName\":\"demo\",\n    \"collection\":\"employee\",\n    \"type\":\"insert\",\n    \"documents\":[{\n            \"title\": \"安安安\",\n            \"description\": \"database\",\n            \"likes\": 100,\n            \"by\": \"Fly\"\n        }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8085/crud",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"crud"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "json_select",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "DNT",
+						"value": "1"
+					},
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Google Chrome\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dbName\":\"demo\",\n    \"collection\":\"employee\",\n    \"type\":\"select\",\n    \"filter\":{\"job\":\"HR\"}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8085/crud",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"crud"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "json_delete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "DNT",
+						"value": "1"
+					},
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Google Chrome\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dbName\":\"demo\",\n    \"collection\":\"employee\",\n    \"type\":\"delete\",\n    \"filter\":{\"job\":\"HR\"}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8085/crud",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"crud"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "json_update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "DNT",
+						"value": "1"
+					},
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Google Chrome\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dbName\":\"demo\",\n    \"collection\":\"employee\",\n    \"type\":\"update\",\n    \"filter\":{\"job\":\"HR\"},\n    \"update\":{\"$set\": {\"salary\": 7400}},\n    \"upsert\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8085/crud",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"crud"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -16,7 +16,7 @@ public class CrudService {
     @Autowired
     static Logger logger = LoggerFactory.getLogger(CrudService.class);
 
-    public String getResult(Command command){
+    public String getResultByCommand(Command command){
 
         //verify
         String errMsg = verify(command) ;
@@ -26,7 +26,7 @@ public class CrudService {
 
         //business logic
         try {
-            return mongoDBJDBC.getResult(command);
+            return mongoDBJDBC.getResultByCommand(command);
 
         }catch (Exception e){
             logger.error("exception happened !! \n"+e.getMessage(),e);
@@ -42,7 +42,8 @@ public class CrudService {
         //base verify
         if(StringU.isEmpty(command.getDbName()) || StringU.isEmpty(command.getCollection()) || StringU.isEmpty(command.getType()) ){
             return "please set operate message!";
-        }else if(StringU.isEmpty(command.getFilter()) && StringU.isEmpty(command.getDocuments()) && StringU.isEmpty(command.getOptions()) ){
+        }else if( StringU.isEmpty(command.getDocuments()) && StringU.isEmpty(command.getFilter())
+                && StringU.isEmpty(command.getUpsert()) &&  StringU.isEmpty(command.getUpdate())){
             return "please enter command!";
         }else{
             return "";

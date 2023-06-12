@@ -1,0 +1,64 @@
+# MongoDB demo data command
+
+# switch db
+use demo
+
+# insert collection data
+db.employee.insertMany([
+  {
+    "first_name":"TEDDY",
+    "last_name":"LAI",
+    "job":"Jonier Software Developer",
+    "salary":5500,
+    "internship": true,
+    "regular_date":null
+  },
+  {
+    "first_name":"ABBY",
+    "last_name":"WU",
+    "job":"Senior Software Developer",
+    "salary":5500,
+    "internship": false,
+    "regular_date":new Date("2016-05-18T16:00:00Z")
+  },
+  {
+    "first_name":"CHRIS",
+    "last_name":"LIN",
+    "job":"Project Manager",
+    "salary":9500,
+    "internship": false,
+    "regular_date":new ISODate("2020-05-18T14:10:30Z")
+  },
+  {
+    "first_name":"XIAO",
+    "last_name":"MI",
+    "job":"System Analyst",
+    "salary":12500,
+    "internship": false,
+    "regular_date":new Date("2015-01-02")
+  },
+  {
+    "first_name":"BOSS",
+    "last_name":"HUGO",
+    "job":"BIG BOSS",
+    "salary":50000,
+    "internship": false,
+    "regular_date":new Date("2000-10-01")
+  },
+  {
+    "first_name":"AMY",
+    "last_name":"WANG",
+    "job":"PART TIME EMPLOYEE",
+    "salary":500,
+    "internship": true,
+    "regular_date":null
+  },
+  {
+    "first_name":"CINDY",
+    "last_name":"PAI",
+    "job":"HR",
+    "salary":1000,
+    "internship": false,
+    "regular_date":new Date()
+  }
+])

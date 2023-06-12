@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /*
  * Document 表示為這是個 MongoDB Object
@@ -14,10 +15,13 @@ import java.math.BigDecimal;
 public class Employee {
     @Id
     private long id ;
-    private BigDecimal salary;
-    private String name ;
+    private String firstName;
+    private String lastName;
     @Indexed
     private String job;
+    private BigDecimal salary;
+    private Boolean internship ;
+    private Date regularDate ;
 
     public long getId() {
         return id;
@@ -25,6 +29,30 @@ public class Employee {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
     }
 
     public BigDecimal getSalary() {
@@ -35,19 +63,19 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getName() {
-        return name;
+    public Boolean getInternship() {
+        return internship;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setInternship(Boolean internship) {
+        this.internship = internship;
     }
 
-    public String getJob() {
-        return job;
+    public Date getRegularDate() {
+        return regularDate;
     }
 
-    public void setJob(String job) {
-        this.job = job;
+    public void setRegularDate(Date regularDate) {
+        this.regularDate = regularDate;
     }
 }
