@@ -1,0 +1,17 @@
+server.port=8084
+
+spring.datasource.url=jdbc:mysql://localhost:3306
+spring.datasource.username=root
+spring.datasource.password=!QAZ2wsx
+
+spring.spring.data.mongodb.database=employee
+spring.spring.data.mongodb.authentication-database=admin
+spring.spring.data.mongodb.uri=mongodb://root:root:127.0.0.1:27017
+spring.spring.data.mongodb.host=127.0.0.1
+spring.spring.data.mongodb.port=27017
+spring.spring.data.mongodb.username=root
+spring.spring.data.mongodb.password=root
+
+logging.level.root=INFO
+logging.level.com.smart.mmogo=DEBUG
+logging.level.org.springframework.data.mongodb.core=DEBUG

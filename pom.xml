@@ -19,7 +19,6 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.1.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<dependencies>
@@ -34,6 +33,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring-boot.version}</version>
+		</dependency>
+		<!--spring mongo jpa-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 			<version>${spring-boot.version}</version>
 		</dependency>
 
@@ -59,27 +64,14 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
-			<scope>test</scope>
 		</dependency>
 
 		<!--ＤＢ＆ＤＲＩＶＥＲ 相容列表	https://www.mongodb.com/docs/drivers/java/sync/current/compatibility/-->
-		<!-- https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-core -->
-<!--		<dependency>-->
-<!--			<groupId>org.mongodb</groupId>-->
-<!--			<artifactId>mongodb-driver-core</artifactId>-->
-<!--			<version>4.9.0</version>-->
-<!--		</dependency>-->
-				<dependency>
-					<groupId>org.mongodb</groupId>
-					<artifactId>mongo-java-driver</artifactId>
-					<version>3.12.12</version>
-				</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync -->
-<!--		<dependency>-->
-<!--			<groupId>org.mongodb</groupId>-->
-<!--			<artifactId>mongodb-driver-sync</artifactId>-->
-<!--			<version>4.9.1</version>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.12.12</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
 		<dependency>
@@ -89,11 +81,18 @@
 		</dependency>
 
 		<!--json-->
-			<dependency>
-				<groupId>com.googlecode.json-simple</groupId>
-				<artifactId>json-simple</artifactId>
-				<version>1.1.1</version>
-			</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

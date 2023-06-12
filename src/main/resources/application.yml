@@ -3,17 +3,34 @@ server:
   port: 8084
 
 # 配置数据库连接
-#spring:
-#  datasource:
-#    url: jdbc:mysql://localhost:3306/mydatabase
-#    username: myusername
-#    password: mypassword
+spring:
+#MySQL
+  datasource:
+#    url: jdbc:mysql://localhost:3306
+    username: root
+    password: "!QAZ2wsx"
+#MongoDB
+  data:
+    mongodb:
+      database: employee
+      authentication-database: admin
+      # ver 2.4以後
+#      uri: mongodb%3A//root:root:127.0.0.1:27017
+      # ver 2.4前
+      host: 127.0.0.1
+      port: 27017
+      username: root
+      password: root
+
+
 
 # 日志设置
 logging:
   level:
     root: INFO
-    com.example.mypackage: DEBUG
+    com.smart.mmogo: DEBUG
+    org.springframework.data.mongodb.core: DEBUG
+
 
 # 自定义应用程序设置
 #myapp:

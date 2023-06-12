@@ -5,6 +5,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.smart.mmogo.bean.Command;
+import com.smart.mmogo.core.global.MongoDBConfig;
 import com.smart.mmogo.core.utils.XsonU;
 import org.bson.Document;
 import org.slf4j.Logger;
@@ -15,9 +16,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class MongoDBJDBC {
+public class MongoJDBC {
     @Autowired
-    static Logger logger = LoggerFactory.getLogger(MongoDBJDBC.class);
+    static Logger logger = LoggerFactory.getLogger(MongoJDBC.class);
+    @Autowired
+    MongoDBConfig mongoDBConfig;
 
 //各種連線設定方法
     public static void main(String[] args){
@@ -41,14 +44,14 @@ public class MongoDBJDBC {
 
 //          simple 连接到 mongodb 服务
 //----------------------------------------------------------------------------------------------------------------------------------------
-//            MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+            MongoClient mongoClient = new MongoClient( "127.0.0.1" , 27017 );
 
 
 
             //连接到数据库
 //----------------------------------------------------------------------------------------------------------------------------------------
-//            MongoDatabase mongoDatabase = mongoClient.getDatabase("employee");
-//            logger.info(mongoDatabase.getName() + " Connect to database successfully");
+            MongoDatabase mongoDatabase = mongoClient.getDatabase("employee");
+            logger.info(mongoDatabase.getName() + " Connect to database successfully");
 
             //doSomething logic...
 
@@ -56,10 +59,7 @@ public class MongoDBJDBC {
 
     public String getResult(Command command) throws Exception{
 
-        //connect
-        MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
-        MongoDatabase mongoDatabase = mongoClient.getDatabase(command.getDbName());
-        logger.info(mongoDatabase.getName() + " Connect to database successfully");
+        MongoDatabase mongoDatabase = connectDB(command);
 
         switch (command.getType()){
             case "delete":
@@ -82,6 +82,15 @@ public class MongoDBJDBC {
 
         }
 
+    }
+
+    private MongoDatabase connectDB(Command command) throws Exception{
+        //connect
+        MongoClient mongoClient = new MongoClient( mongoDBConfig.getHost() , mongoDBConfig.getPort());
+        MongoDatabase mongoDatabase = mongoClient.getDatabase(command.getDbName());
+        logger.info(mongoDatabase.getName() + " Connect to database successfully");
+
+        return mongoDatabase;
     }
 
     public String delete( MongoDatabase mongoDatabase , Command command){

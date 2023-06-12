@@ -2,7 +2,7 @@ package com.smart.mmogo.service.impl;
 
 import com.smart.mmogo.bean.Command;
 import com.smart.mmogo.core.utils.StringU;
-import com.smart.mmogo.dao.impl.MongoDBJDBC;
+import com.smart.mmogo.dao.impl.MongoJDBC;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class CrudService {
 
     @Autowired
-    MongoDBJDBC mongoDBJDBC;
+    MongoJDBC mongoDBJDBC;
     @Autowired
     static Logger logger = LoggerFactory.getLogger(CrudService.class);
 
