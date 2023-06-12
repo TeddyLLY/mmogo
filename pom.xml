@@ -20,17 +20,23 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.1.0</version>
 	</parent>
+	<build>
+		<finalName>mmogo</finalName>
+		<plugins>
+			<!-- Spring Boot Maven Plugin -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot.version}</version>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
 		<!-- Spring Boot Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
-			<version>${spring-boot.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<version>${spring-boot.version}</version>
 		</dependency>
 		<!-- Spring MVC Starter -->
@@ -64,11 +70,6 @@
 			<version>2.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<version>9.0.44</version>
-		</dependency>
-		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
@@ -79,7 +80,7 @@
 			<version>2.5</version>
 		</dependency>
 
-		<!-- -->
+		<!-- junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -108,15 +109,4 @@
 		</dependency>
 	</dependencies>
 
-	<build>
-		<finalName>mmogo</finalName>
-		<plugins>
-			<!-- Spring Boot Maven Plugin -->
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${spring-boot.version}</version>
-			</plugin>
-		</plugins>
-	</build>
 </project>

@@ -15,19 +15,19 @@ public class Command {
      *      base
      *-----------------------
      */
-    String type;
+    private String type;
 
-    String dbName;
+    private String dbName;
 
-    String collection;
+    private String collection;
 
     /*
      * 參數 基本上都是 Bson or BsonArray
      */
-    JSONArray documents ;
-    JSONObject filter ;
-    JSONObject update ;
-    Boolean upsert ;
+    private JSONArray documents ;
+    private JSONObject filter ;
+    private JSONObject update ;
+    private Boolean upsert ;
 
 
     public String getType() {
