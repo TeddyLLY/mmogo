@@ -6,10 +6,19 @@ server:
 
 ###################################################################
 spring:
-  mvc:
-    view:
-      prefix: /WEB-INF/views/
-      suffix: .jsp
+# JSP 配置
+  #mvc:
+  #  view:
+  #    prefix: /WEB-INF/templates/
+  #    suffix: .jsp
+# thymeleaf 配置
+  thymeleaf:
+    cache: false # 禁用缓存，修改完实时展示数据
+    prefix: /WEB-INF/templates/ # 文件所在位置
+    suffix: .html # 后缀
+  web:
+    resources:
+      static-locations: /WEB-INF/static/ # 静态资源
 
 # 配置数据库连接
 #MySQL

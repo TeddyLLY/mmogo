@@ -19,17 +19,11 @@ public class CrudController {
     @Autowired
     CrudService crudService;
 
+
     @RequestMapping("/hello")
     @ResponseBody
-    public String hello() {
-        return "Hello World";
-    }
-
-    @RequestMapping("/")
-    @ResponseBody
-    public ModelAndView indexPage() {
-
-        ModelAndView mav = new ModelAndView("redirect:/index");
+    public ModelAndView hello() {
+        ModelAndView mav = new ModelAndView("index");
         return mav;
     }
 

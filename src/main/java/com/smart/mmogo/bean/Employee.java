@@ -1,6 +1,7 @@
 package com.smart.mmogo.bean;
 
 
+import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,12 +16,15 @@ import java.util.Date;
 public class Employee {
     @Id
     private long id ;
+    @BsonProperty(value = "first_name")
     private String firstName;
+    @BsonProperty(value = "last_name")
     private String lastName;
     @Indexed
     private String job;
     private BigDecimal salary;
     private Boolean internship ;
+    @BsonProperty(value = "regular_date")
     private Date regularDate ;
 
     public long getId() {
