@@ -1,5 +1,6 @@
 package com.smart.mmogo.bean;
 
+import com.smart.mmogo.core.utils.StringU;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -28,6 +29,19 @@ public class Command {
     private JSONObject filter ;
     private JSONObject update ;
     private Boolean upsert ;
+
+    //script verify
+    public String verify(Command command){
+        //base verify
+        if(StringU.isEmpty(command.getDbName()) || StringU.isEmpty(command.getCollection()) || StringU.isEmpty(command.getType()) ){
+            return "please set operate message!";
+        }else if( StringU.isEmpty(command.getDocuments()) && StringU.isEmpty(command.getFilter())
+                && StringU.isEmpty(command.getUpsert()) &&  StringU.isEmpty(command.getUpdate())){
+            return "please enter command!";
+        }else{
+            return "";
+        }
+    }
 
 
     public String getType() {
@@ -85,4 +99,6 @@ public class Command {
     public void setUpsert(Boolean upsert) {
         this.upsert = upsert;
     }
+
+
 }

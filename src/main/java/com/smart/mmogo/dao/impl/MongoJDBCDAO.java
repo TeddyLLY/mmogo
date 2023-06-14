@@ -6,7 +6,6 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.InsertManyOptions;
 import com.mongodb.client.model.UpdateOptions;
 import com.mongodb.client.result.DeleteResult;
 import com.smart.mmogo.bean.Command;
@@ -23,10 +22,13 @@ import java.util.List;
 
 import static com.smart.mmogo.core.utils.XsonU.covertJson;
 
+/**
+ * @author teddylai
+ */
 @Repository
-public class MongoJDBC {
+public class MongoJDBCDAO {
     @Autowired
-    static Logger logger = LoggerFactory.getLogger(MongoJDBC.class);
+    static Logger logger = LoggerFactory.getLogger(MongoJDBCDAO.class);
     @Autowired
     MongoDBConfig mongoDBConfig;
 

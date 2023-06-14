@@ -1,6 +1,7 @@
 package com.smart.mmogo.bean;
 
 
+import com.smart.mmogo.core.utils.StringU;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -26,6 +27,21 @@ public class Employee {
     private Boolean internship ;
     @BsonProperty(value = "regular_date")
     private Date regularDate ;
+
+
+    //bean verify
+    public String verify(Employee employee){
+        //base verify
+        if( StringU.isEmpty(employee.getFirstName()) ){
+            return "First name can not be empty !";
+        }if( StringU.isEmpty(employee.getJob()) ){
+            return "Job can not be empty !!";
+        }if( StringU.isEmpty(employee.getSalary()) ){
+            return "Salary can not be empty !!";
+        }else{
+            return "";
+        }
+    }
 
     public long getId() {
         return id;
@@ -82,4 +98,5 @@ public class Employee {
     public void setRegularDate(Date regularDate) {
         this.regularDate = regularDate;
     }
+
 }

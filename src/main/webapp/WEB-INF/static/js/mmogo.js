@@ -4,24 +4,39 @@ $(document).ready(function () {
     event.preventDefault();
 
     // 獲取輸入值
-    var name = $('#name').val();
-    var salary = $('#salary').val();
-    var isPermanent = $('#isPermanent').val();
-    var conversionDate = $('#conversionDate').val();
+    let firstName = $('#firstName').val();
+    let lastName = $('#lastName').val();
+    let job = $('#job').val();
+    let salaryString = $('#salary').val();
+    let internship = $('#internship').val();
+    let regularDate = $('#regularDate').val();
+
+    if(!firstName && !job && !salary){
+           alert('Please enter a value for Job');
+           return;
+    }
+
+    let salary = parseInt(salaryString, 10);
+    if (isNaN(salary)) {
+        alert('Salary must be a valid integer');
+        return;
+    }
 
     // 建立要傳送的數據對象
-    var employeeData = {
-      name: name,
+    var data = {
+      firstName: firstName,
+      lastName: lastName,
+      job: job,
       salary: salary,
-      isPermanent: isPermanent,
-      conversionDate: conversionDate
+      internship: internship,
+      regularDate: regularDate
     };
 
     // 發送AJAX請求
     $.ajax({
       url: '/api/addEmployee',
       type: 'POST',
-      data: JSON.stringify(employeeData),
+      data: JSON.stringify(data),
       contentType: 'application/json',
       success: function (response) {
         // 請求成功後的處理
@@ -33,6 +48,7 @@ $(document).ready(function () {
         $('#salary').val('');
         $('#isPermanent').val('true');
         $('#conversionDate').val('');
+        window.location.href = "/";
       },
       error: function (error) {
         // 請求失敗後的處理
@@ -45,38 +61,10 @@ $(document).ready(function () {
 
 
 function toAddEmployeePage(){
-        $.ajax({
-              url: '/addEmployeePage',
-              type: 'POST',
-              success: function (response) {
-                     // 請求成功後的處理
-                     console.log(response);
-                     alert(response);
-                     // 將網頁重新導向到後端回傳的URL
-//                     let redirectUrl = response.url;
-                     // 使用JavaScript进行页面跳转
-//                     window.location.href = redirectUrl;
-              },
-              error: function (error) {
-                // 請求失敗後的處理
-                console.log(error);
-                alert('請求失敗，請稍後再試！');
-              }
-        });
+    window.location.href = "/addEmployeePage";
 };
 
-function selectEmployee(){
 
-};
-
-function insertEmployee(){
-
-};
-
-function updateEmployee(){
-
-};
-
-function deleteEmployee(){
-
+function backToHome(){
+    window.location.href = "/";
 };
