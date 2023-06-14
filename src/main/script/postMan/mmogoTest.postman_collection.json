@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "8b7065b1-473d-4aae-8d1a-e8809ac6efb9",
+		"_postman_id": "8a92a712-8bc8-442a-bb23-caf4fae802d4",
 		"name": "mmogoTest",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "11995310",
-		"_collection_link": "https://universal-comet-723941.postman.co/workspace/Mongo~debd91bf-8b8d-4bc3-ba8d-02b98b60c65c/collection/11995310-8b7065b1-473d-4aae-8d1a-e8809ac6efb9?action=share&creator=11995310&source=collection_link"
+		"_collection_link": "https://universal-comet-723941.postman.co/workspace/Mongo~debd91bf-8b8d-4bc3-ba8d-02b98b60c65c/collection/11995310-8a92a712-8bc8-442a-bb23-caf4fae802d4?action=share&creator=11995310&source=collection_link"
 	},
 	"item": [
 		{
@@ -39,7 +39,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"dbName\":\"demo\",\n    \"collection\":\"employee\",\n    \"type\":\"insert\",\n    \"documents\":[{\n            \"title\": \"安安安\",\n            \"description\": \"database\",\n            \"likes\": 100,\n            \"by\": \"Fly\"\n        }]\n}",
+					"raw": "{\n    \"dbName\":\"demo\",\n    \"collection\":\"test\",\n    \"type\":\"insert\",\n    \"documents\":[{\n            \"title\": \"hello\",\n            \"description\": \"database\",\n            \"likes\": 100,\n            \"by\": \"teddy\"\n        }]\n}",
 					"options": {
 						"raw": {
 							"language": "json"

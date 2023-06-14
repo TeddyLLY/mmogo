@@ -5,24 +5,51 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <link th:href="@{/css/bootstrap/bootstrap.min.css}" rel="stylesheet"/>
-    <script th:src="@{/js/bootstrap/bootstrap.js}"></script>
+    <link th:href="@{/css/bootstrap/bootstrap-grid.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/bootstrap/bootstrap-reboot.min.css}" rel="stylesheet"/>
+    <script th:src="@{/js/bootstrap/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+
     <script th:src="@{/js/jquery/code.jquery.com_jquery-3.7.0.min.js}"></script>
 
+    <link th:href="@{/css/mmogo.css}" rel="stylesheet"/>
+    <script th:src="@{/js/mmogo.js}"></script>
 </head>
 <body>
-        <h1>新增</h1>
-        <br>
-        <br>
 
+        <h1 >MongoDB Demo Portal</h1>
+                <div class="">
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected value="" >查詢欄位</option>
+                        <option value="firstName">firstName</option>
+                        <option value="lastName">lastName</option>
+                        <option value="job">job</option>
+                        <option value="salary">salary</option>
+                        <option value="internship">internship</option>
+                        <option value="regularDate">regularDate</option>
+                    </select>
+                    <button class="btn btn-outline-secondary"  type="button" id="button1">查詢</button>
+                    <button class="btn btn-secondary" type="button" id="button0">新增</button>
+                </div>
 
-        <h1>查詢</h1>
+                <div class="">
+                    <span class="input-group-text" id="basic-addon1">查詢內容</span>
+                    <input type="text" class="form-control" name="content"   placeholder="支援模糊查詢"
+                           aria-label="content" aria-describedby="basic-addon1">
+                    <br>
+                </div>
+
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th class="p-3 mb-2 bg-light text-dark" scope="col">id</th>
+                <th class="p-3 mb-2 bg-light text-dark" scope="col">firstName</th>
+                <th class="p-3 mb-2 bg-light text-dark" scope="col">lastName</th>
+                <th class="p-3 mb-2 bg-light text-dark" scope="col">job</th>
+                <th class="p-3 mb-2 bg-light text-dark" scope="col">salary</th>
+                <th class="p-3 mb-2 bg-light text-dark" scope="col">internship</th>
+                <th class="p-3 mb-2 bg-light text-dark" scope="col">regularDate</th>
+                <th class="p-3 mb-2 bg-light text-dark" scope="col" colspan="2">operate</th>
             </tr>
             </thead>
             <tbody>
@@ -31,31 +58,49 @@
                 <td>Mark</td>
                 <td>Otto</td>
                 <td>@mdo</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>
+                    <button class="btn btn-outline-secondary" type="button" id="">修改</button>
+                </td>
+                <td>
+                    <button class="btn btn-dark" type="button" id="">刪除</button>
+                </td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Jacob</td>
                 <td>Thornton</td>
                 <td>@fat</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>
+                    <button class="btn btn-outline-secondary" type="button" id="">修改</button>
+                </td>
+                <td>
+                    <button class="btn btn-dark" type="button" id="">刪除</button>
+                </td>
             </tr>
             <tr>
                 <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
+                <td>SBD</td>
+                <td>BenchPress</td>
                 <td>@twitter</td>
+                <td>SBD</td>
+                <td>BenchPress</td>
+                <td>@twitter</td>
+                <td>
+                    <button class="btn btn-outline-secondary" type="button" id="">修改</button>
+                </td>
+                <td>
+                    <button class="btn btn-dark" type="button" id="">刪除</button>
+                </td>
             </tr>
             </tbody>
         </table>
         <br>
-        <br>
 
-
-        <h1>修改</h1>
-        <br>
-        <br>
-
-
-        <h1>刪除</h1>
-        <br>
-        <br>
 </body>
 </html>
