@@ -1,5 +1,5 @@
 # MongoDB CRUD Java Demo
-Demo with SpringMVC & SpringBoot 
+Demo with SpringMVC & SpringBoot & Thymeleaf
 
     Java 17
     

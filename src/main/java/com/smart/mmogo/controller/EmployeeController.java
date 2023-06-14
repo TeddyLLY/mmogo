@@ -8,22 +8,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
-
-/**
- * @author teddy
- */
 @RestController
-public class CrudController {
-
+public class EmployeeController {
     @Autowired
     CrudService crudService;
 
-    @RequestMapping("/crud")
+
+    @RequestMapping("/hello")
     @ResponseBody
-    public String JsonJdbcCrud(@RequestBody Command command) {
-
-            return crudService.getResultByCommand(command);
-
+    public ModelAndView hello() {
+        ModelAndView mav = new ModelAndView("index");
+        return mav;
     }
+
+    @RequestMapping("/addEmployeePage")
+    @ResponseBody
+    public ModelAndView addAccount() {
+        ModelAndView mav = new ModelAndView("addEmployee");
+        return mav;
+    }
+
 }
