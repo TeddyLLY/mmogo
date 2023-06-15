@@ -29,6 +29,9 @@ public class MongoDBConfig {
     private String username;
     @Value("${spring.data.mongodb.password}")
     private String password;
+    @Value("${spring.data.mongodb.uri}")
+    private String uri;
+
 
     @Bean(name = "mongoTemplate")
     public MongoTemplate mongoTemplate
@@ -86,5 +89,13 @@ public class MongoDBConfig {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
     }
 }

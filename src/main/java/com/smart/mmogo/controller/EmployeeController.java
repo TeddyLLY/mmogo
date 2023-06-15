@@ -13,9 +13,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Demo with
+ *  MongoRepository && MongoTemplate
+ */
 @RestController
 public class EmployeeController {
     @Autowired
@@ -24,13 +28,16 @@ public class EmployeeController {
     MongoTemplateService mongoTemplateService;
 
 
-    @RequestMapping("/hello")
+    /*
+     * init with select
+     */
+    @RequestMapping("/")
     @ResponseBody
-    public ModelAndView hello(@RequestBody Employee employee) {
+    public ModelAndView initPage(@RequestBody(required = false) Employee employee) {
         ModelAndView mav = new ModelAndView("index");
-        Page<Employee> pageResult = mongoRepositoryService.getEmployeeList(employee);
+        List<Employee> list = mongoRepositoryService.getEmployeeList(employee);
 
-        mav.getModel().put("page", pageResult);
+        mav.getModel().put("list", list);
         return mav;
     }
 

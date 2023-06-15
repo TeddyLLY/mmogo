@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 /**
- * @author teddy
+ * Demo with MongoDB JDBC
  */
 @RestController
 public class CrudController {
@@ -23,6 +23,5 @@ public class CrudController {
     public String JsonJdbcCrud(@RequestBody Command command) {
 
             return mongoJDBCService.getResultByCommand(command);
-
     }
 }

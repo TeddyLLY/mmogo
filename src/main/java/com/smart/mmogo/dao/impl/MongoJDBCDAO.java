@@ -54,7 +54,9 @@ public class MongoJDBCDAO {
 
 //          simple 连接到 mongodb 服务
 //----------------------------------------------------------------------------------------------------------------------------------------
-            MongoClient mongoClient = new MongoClient( "127.0.0.1" , 27017);
+            MongoClient mongoClient =
+//                    MongoClients.create(mongoDBConfig.getUri());
+                    new MongoClient("127.0.0.1", 27017);
 
 
 
@@ -98,7 +100,9 @@ public class MongoJDBCDAO {
 
     private MongoDatabase connectDB(Command command) throws Exception{
 
-        MongoClient mongoClient = new MongoClient( mongoDBConfig.getHost() , mongoDBConfig.getPort());
+        MongoClient mongoClient =
+//                MongoClients.create(mongoDBConfig.getUri());
+                new MongoClient( mongoDBConfig.getHost() , mongoDBConfig.getPort());
         MongoDatabase mongoDatabase = mongoClient.getDatabase(command.getDbName());
         logger.info(mongoDatabase.getName() + " Connect to database successfully");
 
@@ -106,7 +110,7 @@ public class MongoJDBCDAO {
     }
 
 
-    public String insert( MongoDatabase mongoDatabase , MongoCollection<Document> collection, Command command){
+    public String insert(MongoDatabase mongoDatabase , MongoCollection<Document> collection, Command command){
 
         //插入文档
         /**
