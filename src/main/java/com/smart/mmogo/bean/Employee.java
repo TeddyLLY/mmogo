@@ -2,10 +2,12 @@ package com.smart.mmogo.bean;
 
 
 import com.smart.mmogo.core.utils.StringU;
+import org.bson.codecs.pojo.annotations.BsonIgnore;
 import org.bson.codecs.pojo.annotations.BsonProperty;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -15,17 +17,20 @@ import java.util.Date;
  */
 @Document
 public class Employee {
-    @Id
-    private long id ;
+    @MongoId
+    private String _id ;
     @BsonProperty(value = "first_name")
+    @Field("first_name")
     private String firstName;
     @BsonProperty(value = "last_name")
+    @Field("last_name")
     private String lastName;
     @Indexed
     private String job;
     private BigDecimal salary;
     private Boolean internship ;
     @BsonProperty(value = "regular_date")
+    @Field("regular_date")
     private Date regularDate ;
 
 
@@ -43,12 +48,12 @@ public class Employee {
         }
     }
 
-    public long getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getFirstName() {
@@ -98,5 +103,4 @@ public class Employee {
     public void setRegularDate(Date regularDate) {
         this.regularDate = regularDate;
     }
-
 }

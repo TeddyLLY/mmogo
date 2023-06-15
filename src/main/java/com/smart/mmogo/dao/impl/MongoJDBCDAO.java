@@ -1,11 +1,10 @@
 package com.smart.mmogo.dao.impl;
 
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.ConnectionString;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.client.*;
+import com.mongodb.client.internal.MongoClientImpl;
 import com.mongodb.client.model.UpdateOptions;
 import com.mongodb.client.result.DeleteResult;
 import com.smart.mmogo.bean.Command;
@@ -54,9 +53,10 @@ public class MongoJDBCDAO {
 
 //          simple 连接到 mongodb 服务
 //----------------------------------------------------------------------------------------------------------------------------------------
-            MongoClient mongoClient =
-//                    MongoClients.create(mongoDBConfig.getUri());
-                    new MongoClient("127.0.0.1", 27017);
+            MongoClient mongoClient = new MongoClientImpl(
+                    MongoClientSettings.builder().applyConnectionString
+                            (new ConnectionString("mongodb://localhost:27017/demo")).build(),null
+            );
 
 
 
@@ -100,9 +100,10 @@ public class MongoJDBCDAO {
 
     private MongoDatabase connectDB(Command command) throws Exception{
 
-        MongoClient mongoClient =
-//                MongoClients.create(mongoDBConfig.getUri());
-                new MongoClient( mongoDBConfig.getHost() , mongoDBConfig.getPort());
+        MongoClient mongoClient = new MongoClientImpl(
+                MongoClientSettings.builder().applyConnectionString
+                        (new ConnectionString(mongoDBConfig.getUri())).build(),null
+        );
         MongoDatabase mongoDatabase = mongoClient.getDatabase(command.getDbName());
         logger.info(mongoDatabase.getName() + " Connect to database successfully");
 

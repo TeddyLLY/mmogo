@@ -30,11 +30,11 @@ spring:
 #MongoDB
   data:
     mongodb:
-      database: employee
+      database: demo
       authentication-database: admin
       # ver 2.4以後 (Template && Repository)
-#      uri: mongodb://root:root:127.0.0.1:27017/employee
-      uri: mongodb://localhost:27017/employee
+#      uri: mongodb://root:root:127.0.0.1:27017/demo
+      uri: mongodb://localhost:27017/demo
       # ver 2.4前 (JDBC)
       host: 127.0.0.1
       port: 27017
