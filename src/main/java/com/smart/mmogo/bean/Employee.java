@@ -2,12 +2,12 @@ package com.smart.mmogo.bean;
 
 
 import com.smart.mmogo.core.utils.StringU;
-import org.bson.codecs.pojo.annotations.BsonIgnore;
 import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-import org.springframework.data.mongodb.core.mapping.MongoId;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -17,8 +17,8 @@ import java.util.Date;
  */
 @Document
 public class Employee {
-    @MongoId
-    private String _id ;
+    @Id
+    private String id ;
     @BsonProperty(value = "first_name")
     @Field("first_name")
     private String firstName;
@@ -31,29 +31,32 @@ public class Employee {
     private Boolean internship ;
     @BsonProperty(value = "regular_date")
     @Field("regular_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date regularDate ;
 
 
     //bean verify
-    public String verify(Employee employee){
+    public static String verify(Employee employee){
         //base verify
         if( StringU.isEmpty(employee.getFirstName()) ){
             return "First name can not be empty !";
-        }if( StringU.isEmpty(employee.getJob()) ){
+        }else if( StringU.isEmpty(employee.getJob()) ){
             return "Job can not be empty !!";
-        }if( StringU.isEmpty(employee.getSalary()) ){
+        }else if( StringU.isEmpty(employee.getSalary()) ){
             return "Salary can not be empty !!";
+        }else if(StringU.isEmpty(employee.getRegularDate()) ){
+            return "Regular date can not be empty !!";
         }else{
             return "";
         }
     }
 
-    public String get_id() {
-        return _id;
+    public String getId() {
+        return id;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {

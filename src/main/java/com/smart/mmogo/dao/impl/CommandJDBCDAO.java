@@ -25,9 +25,9 @@ import static com.smart.mmogo.core.utils.XsonU.covertJson;
  * @author teddylai
  */
 @Repository
-public class MongoJDBCDAO {
+public class CommandJDBCDAO {
     @Autowired
-    static Logger logger = LoggerFactory.getLogger(MongoJDBCDAO.class);
+    static Logger logger = LoggerFactory.getLogger(CommandJDBCDAO.class);
     @Autowired
     MongoDBConfig mongoDBConfig;
 

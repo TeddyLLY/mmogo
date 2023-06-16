@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MongoRepositoryService {
+public class EmployeeRepositoryService {
     @Autowired
     EmployeeRepository employeeRepository;
     @Autowired
-    static Logger logger = LoggerFactory.getLogger(MongoRepositoryService.class);
+    static Logger logger = LoggerFactory.getLogger(EmployeeRepositoryService.class);
 
     public List<Employee> getEmployeeList(Employee employee){
 
@@ -26,6 +26,10 @@ public class MongoRepositoryService {
                     employee.getLastName(),employee.getJob(),employee.getSalary(),
                     employee.getInternship(),employee.getRegularDate());
         }
-
     }
+
+    public void deleteEmployee(Employee employee){
+        employeeRepository.deleteById(employee.getId());
+    }
+
 }

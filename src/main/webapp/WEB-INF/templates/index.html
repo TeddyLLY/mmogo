@@ -12,8 +12,7 @@
 
     <script th:src="@{/js/jquery/code.jquery.com_jquery-3.7.0.min.js}"></script>
 
-    <link th:href="@{/css/mmogo.css}" rel="stylesheet"/>
-    <script th:src="@{/js/mmogo.js}"></script>
+    <script th:src="@{/js/employee.js}"></script>
 </head>
 <body>
 <h1 class="text-center">MongoDB Demo Portal</h1>
@@ -53,54 +52,28 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>
-                    <button class="btn btn-outline-secondary" type="button" >修改</button>
-                </td>
-                <td>
-                    <button class="btn btn-dark" type="button" >刪除</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>
-                    <button class="btn btn-outline-secondary" type="button" >修改</button>
-                </td>
-                <td>
-                    <button class="btn btn-dark" type="button" >刪除</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>SBD</td>
-                <td>BenchPress</td>
-                <td>@twitter</td>
-                <td>SBD</td>
-                <td>BenchPress</td>
-                <td>@twitter</td>
-                <td>
-                    <button class="btn btn-outline-secondary" type="button" >修改</button>
-                </td>
-                <td>
-                    <button class="btn btn-dark" type="button" >刪除</button>
-                </td>
-            </tr>
+                <tr th:each="i:${list}">
+                    <td  th:text="${i.id}">id</td>
+                    <td  th:text="${i.firstName}">firstName</td>
+                    <td  th:text="${i.lastName}">lastName</td>
+                    <td  th:text="${i.job}">job</td>
+                    <td  th:text="${i.salary}">salary</td>
+                    <td  th:text="${i.internship}">internship</td>
+                    <td  th:text="${i.regularDate}">regularDate</td>
+                    <td>
+                        <button class="btn btn-outline-secondary"
+                                type="button" th:onclick="updateEmployeePage([[${i.id}]])" >修改</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-dark"
+                                th:onclick="deleteEmployee([[${i.id}]])" type="button" >刪除</button>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <br>
     </div>
+
+
 </body>
 </html>

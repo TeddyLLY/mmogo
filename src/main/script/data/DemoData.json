@@ -11,7 +11,7 @@ db.employee.insertMany([
     "job":"Jonier Software Developer",
     "salary":5500,
     "internship": true,
-    "regular_date":null
+    "regular_date":new Date("2023-08-22T16:00:00Z")
   },
   {
     "first_name":"ABBY",
@@ -51,7 +51,7 @@ db.employee.insertMany([
     "job":"PART TIME EMPLOYEE",
     "salary":500,
     "internship": true,
-    "regular_date":null
+    "regular_date":new ISODate("2011-06-18T14:10:30Z")
   },
   {
     "first_name":"CINDY",

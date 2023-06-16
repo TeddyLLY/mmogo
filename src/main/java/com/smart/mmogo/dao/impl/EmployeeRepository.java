@@ -16,7 +16,7 @@ public interface EmployeeRepository
     /*
      * 自定義Query
      */
-    @Query(value = "{'$and':[{'first_name': ?0},{'last_name': ?1},{'job': ?2}," +
+    @Query(value = "{'$or':[{'first_name': ?0},{'last_name': ?1},{'job': ?2}," +
             "{'salary': ?3},{'internship': ?4},{'regular_date': ?5}]")
     List<Employee> findByField(String firstName, String lastName ,
           String job , BigDecimal salary , Boolean internship , Date regularDate );

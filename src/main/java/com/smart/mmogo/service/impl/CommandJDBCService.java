@@ -2,19 +2,19 @@ package com.smart.mmogo.service.impl;
 
 import com.smart.mmogo.bean.Command;
 import com.smart.mmogo.core.utils.StringU;
-import com.smart.mmogo.dao.impl.MongoJDBCDAO;
+import com.smart.mmogo.dao.impl.CommandJDBCDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MongoJDBCService {
+public class CommandJDBCService {
 
     @Autowired
-    MongoJDBCDAO mongoJDBCDAO;
+    CommandJDBCDAO commandJDBCDAO;
     @Autowired
-    static Logger logger = LoggerFactory.getLogger(MongoJDBCService.class);
+    static Logger logger = LoggerFactory.getLogger(CommandJDBCService.class);
 
     public String getResultByCommand(Command command){
 
@@ -26,7 +26,7 @@ public class MongoJDBCService {
 
         //business logic
         try {
-            return mongoJDBCDAO.getResultByCommand(command);
+            return commandJDBCDAO.getResultByCommand(command);
 
         }catch (Exception e){
             logger.error("exception happened !! \n"+e.getMessage(),e);
