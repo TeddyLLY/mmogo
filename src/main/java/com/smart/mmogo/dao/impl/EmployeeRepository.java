@@ -1,6 +1,8 @@
 package com.smart.mmogo.dao.impl;
 
 import com.smart.mmogo.bean.Employee;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,8 +18,7 @@ public interface EmployeeRepository
     /*
      * 自定義Query
      */
-    @Query(value = "{'$or':[{'first_name': ?0},{'last_name': ?1},{'job': ?2}," +
-            "{'salary': ?3},{'internship': ?4},{'regular_date': ?5}]")
-    List<Employee> findByField(String firstName, String lastName ,
-          String job , BigDecimal salary , Boolean internship , Date regularDate );
+//    @Query(value = "{'and':[{'job': ?0}]")
+//    List<Employee> findByIdd(String job );
+
 }

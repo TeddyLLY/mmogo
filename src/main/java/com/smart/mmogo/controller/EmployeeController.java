@@ -3,12 +3,17 @@ package com.smart.mmogo.controller;
 import com.google.gson.Gson;
 import com.smart.mmogo.bean.Employee;
 import com.smart.mmogo.core.constant.CommonConst;
+import com.smart.mmogo.core.utils.StringU;
 import com.smart.mmogo.service.impl.EmployeeRepositoryService;
 import com.smart.mmogo.service.impl.EmployeeTemplateService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.net.URLDecoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -23,18 +28,66 @@ public class EmployeeController {
     @Autowired
     EmployeeTemplateService employeeTemplateService;
 
+    @RequestMapping("/")
+    public ModelAndView index() throws Exception{
+        ModelAndView mav = new ModelAndView("redirect:/hello");
+        return mav;
+    }
+
 
     /*
      * init with select
      */
-    @RequestMapping("/")
+    @RequestMapping("/hello")
     @ResponseBody
-    public ModelAndView initPage(@RequestBody(required = false) Employee employee) {
-        ModelAndView mav = new ModelAndView("index");
-        List<Employee> list = employeeRepositoryService.getEmployeeList(employee);
+    public ModelAndView initPage(@RequestParam(value = "data",required = false) String jsonParams ) throws Exception{
+        Employee paramVO = getParamVo(jsonParams);
+        List<Employee> list = employeeRepositoryService.getEmployeeList(paramVO);
 
+        ModelAndView mav = new ModelAndView("index");
         mav.getModel().put("list", list);
         return mav;
+    }
+
+    public Employee getParamVo(String jsonParams ) throws Exception{
+        Employee paramVO = new Employee();
+        if(StringU.isNotEmpty(jsonParams)){
+            JSONObject jsonObject =  new JSONObject(URLDecoder.decode(jsonParams, "UTF-8") );
+            Object selectContent = jsonObject.get("selectContent");
+            String selectField = jsonObject.get("selectField").toString();
+            if( StringU.isNotEmpty(selectField) && StringU.isNotEmpty(selectContent) ){
+                switch (selectField){
+                    case "id":
+                        paramVO.setId((String) selectContent);
+                        return paramVO;
+                    case "firstName":
+                        paramVO.setFirstName((String) selectContent);
+                        return paramVO;
+                    case "lastName":
+                        paramVO.setLastName((String) selectContent);
+                        return paramVO;
+                    case "job":
+                        paramVO.setJob((String) selectContent);
+                        return paramVO;
+                    case "salary":
+                        paramVO.setSalary(Integer.parseInt(selectContent.toString().trim()));
+                        return paramVO;
+                    case "internship":
+                        paramVO.setInternship(Boolean.valueOf(selectContent.toString()));
+                        return paramVO;
+                    case "regularDate":
+                        Date date=new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").parse(selectContent.toString());
+                        paramVO.setRegularDate(date);
+                        return paramVO;
+                    default:
+                        return null;
+                }
+            }else{
+                return null;
+            }
+        }else{
+            return null;
+        }
     }
 
     @RequestMapping("/addEmployeePage")
@@ -46,8 +99,9 @@ public class EmployeeController {
 
     @RequestMapping("/addEmployee")
     @ResponseBody
-    public void addEmployee(@RequestBody Employee employee) {
+    public Integer addEmployee(@RequestBody Employee employee) {
         employeeTemplateService.addEmployee(employee);
+        return CommonConst.STATUS_ON;
     }
 
     @RequestMapping("/updateEmployeePage")

@@ -12,6 +12,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import static org.springframework.data.mongodb.core.mapping.FieldType.DECIMAL128;
+
 /*
  * Document 表示為這是個 MongoDB Object
  */
@@ -27,7 +29,7 @@ public class Employee {
     private String lastName;
     @Indexed
     private String job;
-    private BigDecimal salary;
+    private Integer salary;
     private Boolean internship ;
     @BsonProperty(value = "regular_date")
     @Field("regular_date")
@@ -83,11 +85,11 @@ public class Employee {
         this.job = job;
     }
 
-    public BigDecimal getSalary() {
+    public Integer getSalary() {
         return salary;
     }
 
-    public void setSalary(BigDecimal salary) {
+    public void setSalary(Integer salary) {
         this.salary = salary;
     }
 

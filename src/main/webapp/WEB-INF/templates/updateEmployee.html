@@ -48,6 +48,7 @@
                 <label for="internship">internship（是否為正式員工）</label>
                 <select class="form-control" id="internship" >
                     <option selected  th:value="${employee.internship}" th:text="${employee.internship}"></option>
+                    <option value=""></option>
                     <option value="true">true</option>
                     <option value="false">false</option>
                 </select>

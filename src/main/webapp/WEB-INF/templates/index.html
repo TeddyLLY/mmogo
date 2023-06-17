@@ -18,8 +18,9 @@
 <h1 class="text-center">MongoDB Demo Portal</h1>
     <div class="container">
         <div class="">
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <select id="selectField" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 <option selected value="" >查詢欄位</option>
+                <option value="id">id</option>
                 <option value="firstName">firstName</option>
                 <option value="lastName">lastName</option>
                 <option value="job">job</option>
@@ -27,14 +28,14 @@
                 <option value="internship">internship</option>
                 <option value="regularDate">regularDate</option>
             </select>
-            <button class="btn btn-outline-secondary"  type="button" id="button1">查詢</button>
+            <button class="btn btn-outline-secondary" onclick="selectEmployeeByParam()" type="button" id="button1">查詢</button>
             <button class="btn btn-secondary" onclick="toAddEmployeePage()" type="button" id="button0">新增</button>
         </div>
 
         <div class="">
-            <span class="input-group-text" id="basic-addon1">查詢內容</span>
-            <input type="text" class="form-control" name="content"   placeholder="支援模糊查詢"
-                   aria-label="content" aria-describedby="basic-addon1">
+            <span class="input-group-text" >查詢內容</span>
+            <input id="selectContent" type="text" name="content" class="form-control" aria-label=".form-control-lg example"
+                   placeholder="firstName & lastName & job 支援模糊查詢  ,  regularDate : yyyy/MM/dd HH:mm:ss " >
             <br>
         </div>
 
@@ -59,7 +60,7 @@
                     <td  th:text="${i.job}">job</td>
                     <td  th:text="${i.salary}">salary</td>
                     <td  th:text="${i.internship}">internship</td>
-                    <td  th:text="${i.regularDate}">regularDate</td>
+                    <td  th:text="${#dates.format(i.regularDate,'yyyy/MM/dd HH:mm:ss')}">regularDate</td>
                     <td>
                         <button class="btn btn-outline-secondary"
                                 type="button" th:onclick="updateEmployeePage([[${i.id}]])" >修改</button>

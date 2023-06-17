@@ -6,6 +6,8 @@ import com.smart.mmogo.dao.impl.EmployeeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,10 +24,20 @@ public class EmployeeRepositoryService {
         if(StringU.isEmpty(employee)){
             return employeeRepository.findAll();
         }else {
-            return employeeRepository.findByField(employee.getFirstName(),
-                    employee.getLastName(),employee.getJob(),employee.getSalary(),
-                    employee.getInternship(),employee.getRegularDate());
+            Example example = Example.of(employee,stringContainMacher());
+            return employeeRepository.findAll(example);
         }
+    }
+
+    private ExampleMatcher stringContainMacher(){
+        return ExampleMatcher.matching()
+                //Spring Data中使用MongoDB时，插入数据会添加一个_class字段，这个字段是用来映射POJO的
+                //查詢預設有_class , 要查ＤＢ直接塞的資料要忽略 _class
+                .withIgnorePaths("_class")//要忽略的屬性
+                .withMatcher("id",matcher -> matcher.exact())//id精確查詢
+                .withMatcher("salary",matcher -> matcher.exact())//id精確查詢
+                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING)//其他模糊查詢
+                .withIgnoreNullValues();
     }
 
     public void deleteEmployee(Employee employee){
