@@ -73,41 +73,48 @@ public class CommandJDBCDAO {
     public String getResultByCommand(Command command) throws Exception{
 
         //connect
-        MongoDatabase mongoDatabase = connectDB(command);
-        //chose collection
-        MongoCollection<Document> collection = mongoDatabase.getCollection(command.getCollection());
-        logger.info("集合 "+command.getCollection()+" 选择成功");
+        MongoClient mongoClient = connectDB();
+        
+        try {
+            MongoDatabase mongoDatabase = mongoClient.getDatabase(command.getDbName());
+            logger.info(mongoDatabase.getName() + " Connect to database successfully");
 
-        switch (command.getType()){
-            case "insert":
-                return  insert( mongoDatabase , collection , command);
+            //chose collection
+            MongoCollection<Document> collection = mongoDatabase.getCollection(command.getCollection());
+            logger.info("集合 "+command.getCollection()+" 选择成功");
 
-            case "select":
-                return  select( mongoDatabase , collection  , command);
+            switch (command.getType()){
+                case "insert":
+                    return  insert( mongoDatabase , collection , command);
 
-            case "update":
-                return  update( mongoDatabase , collection  , command);
+                case "select":
+                    return  select( mongoDatabase , collection  , command);
 
-            case "delete":
-                return  delete( mongoDatabase , collection  , command);
+                case "update":
+                    return  update( mongoDatabase , collection  , command);
 
-            default:
-                throw new RuntimeException("no optional type") ;
+                case "delete":
+                    return  delete( mongoDatabase , collection  , command);
 
+                default:
+                    throw new RuntimeException("no optional type") ;
+            }
+
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+
+        }finally {
+            mongoClient.close();
         }
 
     }
 
-    private MongoDatabase connectDB(Command command) throws Exception{
-
+    private MongoClient connectDB() throws Exception{
         MongoClient mongoClient = new MongoClientImpl(
                 MongoClientSettings.builder().applyConnectionString
                         (new ConnectionString(mongoDBConfig.getUri())).build(),null
         );
-        MongoDatabase mongoDatabase = mongoClient.getDatabase(command.getDbName());
-        logger.info(mongoDatabase.getName() + " Connect to database successfully");
-
-        return mongoDatabase;
+        return mongoClient;
     }
 
 

@@ -32,18 +32,27 @@ spring:
     mongodb:
       database: demo
       authentication-database: admin
-      # ver 2.4以後 (Template && Repository)
-#      uri: mongodb://root:root:127.0.0.1:27017/demo
-      uri: mongodb://localhost:27017/demo
-      # ver 2.4前 (JDBC)
+      # ver 2.4前用這個
       host: 127.0.0.1
       port: 27017
       username: root
       password: root
+      # ver 2.4以後用 uri string 連接 (Template && Repository && JDBC)
+#   docker-compose Standalone & cluster
+#      uri: mongodb://localhost:27010/demo
+#      uri: mongodb://localhost:27011/demo
+#   local Standalone db 有密碼與無密碼連接方式
+#      uri: mongodb://localhost:27017/demo
+#      uri: mongodb://root:root@127.0.0.1:27017/demo
+#    cloud atlas 生成的uri
+      uri: mongodb+srv://root:root@cloud-cluster0.prhwadb.mongodb.net/demo?retryWrites=true&w=majority
+#    linux vm cluster
+#      uri:
+#      uri:
 
 
 ###################################################################
-# 日志设置
+# log4j 设置
 logging:
   level:
     root: INFO

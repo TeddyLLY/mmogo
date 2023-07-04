@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 public class EmployeeRepositoryService {
-    @Autowired
+    @Autowired()
     EmployeeRepository employeeRepository;
     @Autowired
     static Logger logger = LoggerFactory.getLogger(EmployeeRepositoryService.class);
