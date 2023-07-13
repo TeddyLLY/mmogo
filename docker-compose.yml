@@ -1,45 +1,48 @@
+#################### Memo ####################
 #先啟動docker container 再這個.yml 路徑下使用docker-compose
-#啟動關閉指令
-#docker-compose up
-#docker-compose down
+#指令
+  #啟動且在背景執行
+  #docker-compose up -d
+  #關閉
+  #docker-compose stop
+  #刪除
+  #docker-compose rm
+  #關閉並刪除
+  #docker-compose down
 
 
-#Single
+#################### SingleAlone With Auth ####################
 version: '3.5'
 services:
   mongodb_single:
     image: mongo:6.0.6
     container_name: mongodb_single1
     ports:
-      - "27010:27010"
-    entrypoint: [ "/usr/bin/mongod","--bind_ip", "localhost"]
+      - "17010:17010"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    command: mongod --auth --port 17010 --bind_ip_all
 
 
-#Cluster
+#################### Easy ReplicaSet Cluster ####################
 #version: '3.5'
 #services:
 #  mongo1:
 #    container_name: mongo11
 #    image: mongo:6.0.6
 #    ports:
-#      - 27011:27011
-#    command: mongod --port 27011 --bind_ip_all --replSet myReplicaSet
+#      - 17011:17011
+#    command: mongod --port 17011 --bind_ip_all --replSet myReplicaSet
 #  mongo2:
 #    container_name: mongo12
 #    image: mongo:6.0.6
 #    ports:
-#      - 27012:27012
-#    command: mongod --port 27012 --bind_ip_all --replSet myReplicaSet
+#      - 17012:17012
+#    command: mongod --port 17012 --bind_ip_all --replSet myReplicaSet
 #  mongo3:
 #    container_name: mongo13
 #    image: mongo:6.0.6
 #    ports:
-#      - 27013:27013
-#    command: mongod --port 27013 --bind_ip_all --replSet myReplicaSet
-#    healthcheck:
-#      test: ["CMD","mongo","--host","mongo11","--port","27011",
-#        "--eval", 'rs.initiate( { _id : "myReplicaSet", members:
-#                [{ _id: 0, host: "mongo11:27011" },
-#                 { _id: 1, host: "mongo12:27012" },
-#                 { _id: 2, host: "mongo13:27013" }]})']
-#      interval: 10s
+#      - 17013:17013
+#    command: mongod --port 17013 --bind_ip_all --replSet myReplicaSet

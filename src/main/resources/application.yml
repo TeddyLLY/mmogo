@@ -27,28 +27,35 @@ spring:
     username: root
     password: "!QAZ2wsx"
 
-#MongoDB
+#####MongoDB
   data:
     mongodb:
       database: demo
       authentication-database: admin
-      # ver 2.4前用這個
+##### ver 2.4前用這個
       host: 127.0.0.1
       port: 27017
       username: root
       password: root
-      # ver 2.4以後用 uri string 連接 (Template && Repository && JDBC)
-#   docker-compose Standalone & cluster
-#      uri: mongodb://localhost:27010/demo
-#      uri: mongodb://localhost:27011/demo
-#   local Standalone db 有密碼與無密碼連接方式
+##### ver 2.4以後用 uri string 連接 (Template && Repository && JDBC)
+#####   local Standalone db 有密碼與無密碼連接方式
+#####      DB啟動參考指令
+#####         有密碼：
+#####            mongod --auth --dbpath "/Users/teddylai/database/mongo/mongodb/data" --logpath "/Users/teddylai/database/mongo/mongodb/log/mongo.log" --fork
+#####         沒密碼：
+#####            mongod --dbpath "/Users/teddylai/database/mongo/mongodb/data" --logpath "/Users/teddylai/database/mongo/mongodb/log/mongo.log" --fork
 #      uri: mongodb://localhost:27017/demo
 #      uri: mongodb://root:root@127.0.0.1:27017/demo
-#    cloud atlas 生成的uri
-      uri: mongodb+srv://root:root@cloud-cluster0.prhwadb.mongodb.net/demo?retryWrites=true&w=majority
-#    linux vm cluster
-#      uri:
-#      uri:
+#####   cloud atlas 生成的uri
+#      uri: mongodb+srv://root:root@cloud-cluster0.prhwadb.mongodb.net/demo?retryWrites=true&w=majority
+#####   docker Standalone & cluster
+#      uri: mongodb://localhost:27010/demo
+      uri: mongodb://mongo1:27011,mongo2:27012,mongo3:27013/demo?replicaSet=myDockerSet
+#####   docker-compose Standalone & cluster
+#      uri: mongodb://root:root@localhost:17010/demo?authSource=admin
+#      uri: mongodb://mongo11:17011,mongo12:17012,mongo13:17013/demo?replicaSet=myReplicaSet
+#####   linux vm cluster
+#      uri: "mongodb://root:root@mongo0.replset.member:37010,mongo1.replset.member:37011,mongo2.replset.member:37012/demo?authSource=admin&replicaSet=mongoCluster"
 
 
 ###################################################################
