@@ -47,10 +47,10 @@ spring:
 #      uri: mongodb://localhost:27017/demo
 #      uri: mongodb://root:root@127.0.0.1:27017/demo
 #####   cloud atlas 生成的uri
-#      uri: mongodb+srv://root:root@cloud-cluster0.prhwadb.mongodb.net/demo?retryWrites=true&w=majority
+      uri: mongodb+srv://root:root@cloud-cluster0.prhwadb.mongodb.net/demo?retryWrites=true&w=majority
 #####   docker Standalone & cluster
 #      uri: mongodb://localhost:27010/demo
-      uri: mongodb://mongo1:27011,mongo2:27012,mongo3:27013/demo?replicaSet=myDockerSet
+#      uri: mongodb://mongo1:27011,mongo2:27012,mongo3:27013/demo?replicaSet=myDockerSet
 #####   docker-compose Standalone & cluster
 #      uri: mongodb://root:root@localhost:17010/demo?authSource=admin
 #      uri: mongodb://mongo11:17011,mongo12:17012,mongo13:17013/demo?replicaSet=myReplicaSet
