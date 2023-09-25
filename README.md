@@ -1,6 +1,5 @@
 # MongoDB CRUD Java Demo
 
-
 Demo with SpringMVC & SpringBoot & Thymeleaf
 
     Java 17
@@ -10,9 +9,7 @@ Demo with SpringMVC & SpringBoot & Thymeleaf
     PostMan
         Export/Import with collection v2.1
 
-
-
-#api operate
+Api Operate
 
     MongoJDBC
         http://127.0.0.1:8085/crud 
@@ -22,3 +19,8 @@ Demo with SpringMVC & SpringBoot & Thymeleaf
     MongoTemplate
         http://127.0.0.1:8085
             operate with thymeleaf page
+
+
+User Manual
+
+    src/main/script/user_manual
