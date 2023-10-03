@@ -1,0 +1,14 @@
+# pull image
+docker pull nomhiro1204/oracle21c
+
+# run
+# --platform linux/amd64 , Apple Silicon 需要模擬轉譯才加
+docker run -d -it --name OraDevDB -p 1521:1521  --platform linux/amd64 nomhiro1204/oracle21c
+
+# docker teminal
+bash
+lsnrctl status
+
+sqlplus / as sysdba
+
+exit

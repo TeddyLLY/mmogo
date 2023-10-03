@@ -2,7 +2,7 @@ package jdbc.mysql;
 
 import java.sql.*;
 
-public class jdbc {
+public class JDBC {
     public static void main(String[] args) {
 
         // Connection Info

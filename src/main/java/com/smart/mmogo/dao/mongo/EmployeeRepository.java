@@ -1,15 +1,8 @@
-package com.smart.mmogo.dao.impl;
+package com.smart.mmogo.dao.mongo;
 
-import com.smart.mmogo.bean.Employee;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Sort;
+import com.smart.mmogo.bean.mongo.Employee;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
 
 @Repository
 public interface EmployeeRepository

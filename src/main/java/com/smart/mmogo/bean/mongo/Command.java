@@ -1,4 +1,4 @@
-package com.smart.mmogo.bean;
+package com.smart.mmogo.bean.mongo;
 
 import com.smart.mmogo.core.utils.StringU;
 import org.json.simple.JSONArray;

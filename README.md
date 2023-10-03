@@ -23,4 +23,4 @@ Api Operate
 
 User Manual
 
-    src/main/script/user_manual
+    ~/mmogo/src/main/java/jdbc/mongodb/script/user_manual

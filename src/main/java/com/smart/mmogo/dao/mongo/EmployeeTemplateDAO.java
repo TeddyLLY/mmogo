@@ -1,6 +1,6 @@
-package com.smart.mmogo.dao.impl;
+package com.smart.mmogo.dao.mongo;
 
-import com.smart.mmogo.bean.Employee;
+import com.smart.mmogo.bean.mongo.Employee;
 import com.smart.mmogo.core.utils.StringU;
 import jakarta.annotation.Resource;
 import org.bson.types.ObjectId;

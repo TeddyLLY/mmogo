@@ -1,7 +1,7 @@
-package com.smart.mmogo.controller;
+package com.smart.mmogo.controller.mongo;
 
-import com.smart.mmogo.bean.Command;
-import com.smart.mmogo.service.impl.CommandJDBCService;
+import com.smart.mmogo.bean.mongo.Command;
+import com.smart.mmogo.service.mongo.CommandJDBCService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

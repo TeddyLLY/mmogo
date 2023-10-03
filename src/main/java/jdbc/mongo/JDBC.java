@@ -1,4 +1,4 @@
-package jdbc.mongodb;
+package jdbc.mongo;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
@@ -7,7 +7,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.internal.MongoClientImpl;
 import org.bson.Document;
-public class jdbc {
+public class JDBC {
 
     public static void main(String[] args) {
         // MongoDB connect uri

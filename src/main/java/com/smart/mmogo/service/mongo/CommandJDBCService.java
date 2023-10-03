@@ -1,8 +1,8 @@
-package com.smart.mmogo.service.impl;
+package com.smart.mmogo.service.mongo;
 
-import com.smart.mmogo.bean.Command;
+import com.smart.mmogo.bean.mongo.Command;
 import com.smart.mmogo.core.utils.StringU;
-import com.smart.mmogo.dao.impl.CommandJDBCDAO;
+import com.smart.mmogo.dao.mongo.CommandJDBCDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

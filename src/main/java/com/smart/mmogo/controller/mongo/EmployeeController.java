@@ -1,11 +1,11 @@
-package com.smart.mmogo.controller;
+package com.smart.mmogo.controller.mongo;
 
 import com.google.gson.Gson;
-import com.smart.mmogo.bean.Employee;
+import com.smart.mmogo.bean.mongo.Employee;
 import com.smart.mmogo.core.constant.CommonConst;
 import com.smart.mmogo.core.utils.StringU;
-import com.smart.mmogo.service.impl.EmployeeRepositoryService;
-import com.smart.mmogo.service.impl.EmployeeTemplateService;
+import com.smart.mmogo.service.mongo.EmployeeRepositoryService;
+import com.smart.mmogo.service.mongo.EmployeeTemplateService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

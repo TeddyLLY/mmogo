@@ -1,6 +1,6 @@
 package com.smart.mmogo.core.utils;
 
-import com.smart.mmogo.bean.Command;
+import com.smart.mmogo.bean.mongo.Command;
 import org.bson.Document;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

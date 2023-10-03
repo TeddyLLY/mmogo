@@ -1,4 +1,4 @@
-package com.smart.mmogo.dao.impl;
+package com.smart.mmogo.dao.mongo;
 
 
 import com.mongodb.ConnectionString;
@@ -7,7 +7,7 @@ import com.mongodb.client.*;
 import com.mongodb.client.internal.MongoClientImpl;
 import com.mongodb.client.model.UpdateOptions;
 import com.mongodb.client.result.DeleteResult;
-import com.smart.mmogo.bean.Command;
+import com.smart.mmogo.bean.mongo.Command;
 import com.smart.mmogo.core.global.MongoDBConfig;
 import com.smart.mmogo.core.utils.StringU;
 import com.smart.mmogo.core.utils.XsonU;

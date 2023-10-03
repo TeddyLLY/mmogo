@@ -1,4 +1,4 @@
-package com.smart.mmogo.bean;
+package com.smart.mmogo.bean.mongo;
 
 
 import com.smart.mmogo.core.utils.StringU;
@@ -9,10 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.math.BigDecimal;
 import java.util.Date;
-
-import static org.springframework.data.mongodb.core.mapping.FieldType.DECIMAL128;
 
 /*
  * Document 表示為這是個 MongoDB Object
