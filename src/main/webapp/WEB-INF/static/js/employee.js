@@ -8,11 +8,11 @@ $(function () {
 });// $(function () { }); end
 
 function toAddEmployeePage(){
-    window.location.href = "/addEmployeePage";
+    window.location.href = "/api/employees/addEmployee";
 };
 
 function backHome(){
-   location.href = "/hello";
+   location.href = "/api/employees/get";
 };
 
 function updateEmployeePage(id){
@@ -22,7 +22,7 @@ function updateEmployeePage(id){
     let jsonData = encodeURIComponent(JSON.stringify(data));
     console.log(JSON.stringify(data));
 
-    let url = "/updateEmployeePage?data="+jsonData ;
+    let url = "/api/employees/updateEmployee?data="+jsonData ;
     window.location.href = url ;
 };
 
@@ -42,7 +42,7 @@ function deleteEmployee(id){
         };
         // 發送AJAX請求
         $.ajax({
-          url: '/deleteEmployee',
+          url: '/api/employees/delete',
           type: 'POST',
           data: JSON.stringify(data),
           contentType: 'application/json',
@@ -98,7 +98,7 @@ function addEmployeeForm(){
     console.log(data);
     // 發送AJAX請求
     $.ajax({
-      url: '/addEmployee',
+      url: '/api/employees/post',
       type: 'POST',
       data: JSON.stringify(data),
       contentType: 'application/json',
@@ -162,7 +162,7 @@ function updateEmployeeForm(){
     console.log(data);
     // 發送AJAX請求
     $.ajax({
-      url: '/updateEmployee',
+      url: '/api/employees/put',
       type: 'POST',
       data: JSON.stringify(data),
       contentType: 'application/json',
@@ -195,6 +195,6 @@ function selectEmployeeByParam(){
       let jsonData = encodeURIComponent(JSON.stringify(data));
       console.log(JSON.stringify(data));
 
-      let url = "/hello?data="+jsonData ;
+      let url = "/api/employees/get?data="+jsonData ;
       window.location.href = url ;
 }

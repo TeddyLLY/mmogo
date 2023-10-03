@@ -22,34 +22,32 @@ import java.util.List;
  *  MongoRepository && MongoTemplate
  */
 @RestController
+@RequestMapping("/api")
 public class EmployeeController {
     @Autowired
     EmployeeRepositoryService employeeRepositoryService;
     @Autowired
     EmployeeTemplateService employeeTemplateService;
 
-    @RequestMapping("/")
-    public ModelAndView index() throws Exception{
-        ModelAndView mav = new ModelAndView("redirect:/hello");
-        return mav;
-    }
+
+
 
 
     /*
      * init with select
      */
-    @RequestMapping("/hello")
+    @RequestMapping("/employees/get")
     @ResponseBody
     public ModelAndView initPage(@RequestParam(value = "data",required = false) String jsonParams ) throws Exception{
         Employee paramVO = getParamVo(jsonParams);
-        List<Employee> list = employeeRepositoryService.getEmployeeList(paramVO);
+        List<Employee> list = employeeRepositoryService.get(paramVO);
 
         ModelAndView mav = new ModelAndView("index");
         mav.getModel().put("list", list);
         return mav;
     }
 
-    public Employee getParamVo(String jsonParams ) throws Exception{
+    public Employee getParamVo(String jsonParams) throws Exception{
         Employee paramVO = new Employee();
         if(StringU.isNotEmpty(jsonParams)){
             JSONObject jsonObject =  new JSONObject(URLDecoder.decode(jsonParams, "UTF-8") );
@@ -90,21 +88,21 @@ public class EmployeeController {
         }
     }
 
-    @RequestMapping("/addEmployeePage")
+    @RequestMapping("/employees/addEmployee")
     @ResponseBody
     public ModelAndView addEmployeePage() {
         ModelAndView mav = new ModelAndView("addEmployee");
         return mav;
     }
 
-    @RequestMapping("/addEmployee")
+    @PostMapping("/employees/post")
     @ResponseBody
     public Integer addEmployee(@RequestBody Employee employee) {
-        employeeTemplateService.addEmployee(employee);
+        employeeTemplateService.post(employee);
         return CommonConst.STATUS_ON;
     }
 
-    @RequestMapping("/updateEmployeePage")
+    @RequestMapping("/employees/updateEmployee")
     @ResponseBody
     public ModelAndView updateEmployeePage(@RequestParam("data") String employeeJson) throws Exception{
         // Decode the URL-encoded JSON string
@@ -114,25 +112,25 @@ public class EmployeeController {
         Employee paramVO = new Gson().fromJson(decodedJson, Employee.class);
 
         //find by id
-        Employee employee = employeeTemplateService.findById(paramVO);
+        Employee employee = employeeTemplateService.get(paramVO);
 
         ModelAndView mav = new ModelAndView("updateEmployee");
         mav.getModel().put("employee", employee);
         return mav;
     }
 
-    @RequestMapping("/updateEmployee")
+    @RequestMapping("/employees/put")
     @ResponseBody
     public Integer updateEmployee(@RequestBody Employee employee) {
-        employeeTemplateService.updateEmployee(employee);
+        employeeTemplateService.put(employee);
         return CommonConst.STATUS_ON;
     }
 
-    @RequestMapping("/deleteEmployee")
+    @RequestMapping("/employees/delete")
     @ResponseBody
     public Integer deleteEmployee(@RequestBody Employee employee) throws Exception{
         //delete by id
-        employeeRepositoryService.deleteEmployee(employee);
+        employeeRepositoryService.delete(employee);
         return CommonConst.STATUS_ON;
     }
 

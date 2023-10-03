@@ -22,7 +22,6 @@ public class CommandController {
     @RequestMapping("/crud")
     @ResponseBody
     public String JsonJdbcCrud(@RequestBody Command command) {
-
             return commandJDBCService.getResultByCommand(command);
     }
 }

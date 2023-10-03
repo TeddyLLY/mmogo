@@ -16,25 +16,25 @@ public class EmployeeTemplateService {
     static Logger logger = LoggerFactory.getLogger(EmployeeTemplateService.class);
 
 
-    public void addEmployee(Employee employee){
+    public void post(Employee employee){
         String errMsg = Employee.verify(employee);
 
         if(StringU.isNotEmpty(errMsg)){
             throw new RuntimeException(errMsg);
         }else{
-            employeeTemplateDAO.addEmployee(employee);
+            employeeTemplateDAO.post(employee);
         }
     }
 
-    public Employee findById(Employee employee){
+    public Employee get(Employee employee){
         if(StringU.isEmpty(employee.getId())){
             throw new RuntimeException("ID not found");
         }else{
-            return employeeTemplateDAO.findById(employee);
+            return employeeTemplateDAO.get(employee.getId());
         }
     }
 
-    public void updateEmployee(Employee employee){
+    public void put(Employee employee){
         String errMsg = Employee.verify(employee);
 
         if(StringU.isEmpty(employee.getId())){
@@ -42,7 +42,7 @@ public class EmployeeTemplateService {
         }else if(StringU.isNotEmpty(errMsg)){
             throw new RuntimeException(errMsg);
         }else{
-            employeeTemplateDAO.updateEmployee(employee);
+            employeeTemplateDAO.put(employee);
         }
     }
 

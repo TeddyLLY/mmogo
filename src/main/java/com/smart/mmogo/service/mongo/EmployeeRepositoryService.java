@@ -19,7 +19,7 @@ public class EmployeeRepositoryService {
     @Autowired
     static Logger logger = LoggerFactory.getLogger(EmployeeRepositoryService.class);
 
-    public List<Employee> getEmployeeList(Employee employee){
+    public List<Employee> get(Employee employee){
 
         if(StringU.isEmpty(employee)){
             return employeeRepository.findAll();
@@ -40,7 +40,7 @@ public class EmployeeRepositoryService {
                 .withIgnoreNullValues();
     }
 
-    public void deleteEmployee(Employee employee){
+    public void delete(Employee employee){
         employeeRepository.deleteById(employee.getId());
     }
 

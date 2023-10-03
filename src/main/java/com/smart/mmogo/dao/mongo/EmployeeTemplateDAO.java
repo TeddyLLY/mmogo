@@ -19,18 +19,18 @@ public class EmployeeTemplateDAO {
     @Resource
     private MongoTemplate mongoTemplate;
 
-    public void addEmployee(Employee employee){
+    public void post(Employee employee){
         mongoTemplate.insert(employee);
     }
 
 
-    public Employee findById(Employee employee){
-        ObjectId id = new ObjectId(employee.getId());
-        return mongoTemplate.findById(id ,Employee.class);
+    public Employee get(String id){
+        ObjectId oid = new ObjectId(id);
+        return mongoTemplate.findById(oid ,Employee.class);
     }
 
 
-    public void updateEmployee(Employee employee){
+    public void put(Employee employee){
         Query query = new Query(Criteria.where("_id").is(new ObjectId(employee.getId())));
         List<Employee> existingEmployees = mongoTemplate.find(query, Employee.class);
 
