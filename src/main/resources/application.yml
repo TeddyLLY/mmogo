@@ -1,10 +1,13 @@
 ###################################################################
-# log4j 设置
+# Logback 设置
 logging:
   level:
     root: INFO
     com.smart.mmogo: DEBUG
     org.springframework.data.mongodb.core: DEBUG
+  file:
+    name: logback.log # log name
+    path: /opt/mmogo/logs/ # log path
 
 
 
@@ -21,11 +24,11 @@ spring:
 # thymeleaf 配置
   thymeleaf:
     cache: false # 禁用缓存，修改完实时展示数据
-    prefix: /WEB-INF/templates/ # 文件所在位置
-    suffix: .html # 后缀ㄕ
+    prefix: classpath:/templates/ # 文件所在位置
+    suffix: .html # 后缀
   web:
     resources:
-      static-locations: /WEB-INF/static/ # 静态资源
+      static-locations: classpath:/static/ # 静态资源
 
 
 ###################################################################
