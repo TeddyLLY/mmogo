@@ -12,6 +12,8 @@ logging:
 # 设置服务器端口
 server:
   port: 8085
+  servlet:
+    contextPath=/:
 
 
 spring:

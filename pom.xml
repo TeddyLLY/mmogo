@@ -4,7 +4,12 @@
 	<groupId>com.smart</groupId>
 	<artifactId>mmogo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+<!--
+		run on linux
+			cd ~/mmogo
+			java -jar mmogo.jar
+-->
+	<packaging>jar</packaging>
 	<name>mmogo</name>
 	<description>mmogo</description>
 	<url>http://maven.apache.org</url>

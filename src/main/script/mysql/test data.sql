@@ -12,14 +12,16 @@ CREATE TABLE employee (
 CREATE TABLE employee_log (
     log_id INT AUTO_INCREMENT PRIMARY KEY,
     employee_id INT NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
     action VARCHAR(10) NOT NULL,
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
 -- select
-SELECT * FROM main.employee;
-SELECT * FROM main.employee_log;
+SELECT * FROM test.employee;
+SELECT * FROM employee_log;
+
 
 
 --create test trigger
@@ -29,30 +31,30 @@ DELIMITER $$
         FOR EACH ROW
     BEGIN
         DECLARE action VARCHAR(10);
-
-        IF INSERTING THEN
             SET action = 'INSERT';
-        ELSEIF UPDATING THEN
-            SET action = 'UPDATE';
-        ELSE
-            SET action = 'DELETE';
-        END IF;
 
-        INSERT INTO employee_log (employee_id, action, timestamp)
-        VALUES (NEW.id, action, NOW());
+    INSERT INTO employee_log (employee_id, first_name ,action, timestamp)
+    VALUES (NEW.id, New.first_name ,action, NOW());
     END;
 $$
 DELIMITER ;
 
-SHOW TRIGGERS LIKE 'employee_audit';
+
+SHOW TRIGGERS LIKE '%employee%';
+
+DROP TRIGGER IF EXISTS employee_audit;
 
 
---insert sample data
-insert into main.employee (first_name , last_name ) values ("teddy",'lai') ;
-commit ;
 
---test delete
-delete from main.employee where 1=1 ;
+--test
+INSERT INTO employee (first_name, last_name, email, hire_date, salary, department)
+VALUES ('Teddy', 'Lai', 'teddy@example.com', '2023-10-04', 50000.00, 'HR');
+
+
+delete from employee where first_name like '%Teddy%' ;
+
+
+
 
 
 
