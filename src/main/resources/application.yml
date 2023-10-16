@@ -7,9 +7,14 @@ logging:
     org.springframework.data.mongodb.core: DEBUG
   file:
     name: logback.log # log name
-    path: /opt/mmogo/logs/ # log path
-
-
+  pattern:
+    file: mmogo %d{yyyy-MM-dd HH:mm:ss.SSS} %p %C.%M %m %n
+  logback:
+    rollingpolicy:
+      file-name-pattern: logback.%d{yyyy-MM-dd}.%i.gz
+      max-file-size: 10MB
+      total-size-cap: 1GB
+      max-history: 20
 
 ###################################################################
 # 设置服务器端口
