@@ -2,6 +2,14 @@
 
 Java CRUD With MongoDB Demo
 
+------------------------------------
+Demo Website
+
+http://114.34.166.165:8085
+
+------------------------------------
+Project Detail
+
     Backend : 
         Java 17 lts  &  SpringMVC 
         SpringBoot   &  Spring Data  &  Maven 
@@ -36,10 +44,5 @@ Api Operate
 
 User Manual
 
-    ~/mmogo/src/main/java/jdbc/mongodb/script/user_manual
+    ~/mmogo/src/main/resources/script/mongo/user_manual
 
-
-------------------------------------
-Demo Website
-
-http://114.34.166.165:8085
