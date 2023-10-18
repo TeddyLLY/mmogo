@@ -5,8 +5,13 @@
 	<artifactId>mmogo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 <!--
+		maven package project to jar
+			mvn package
+
 		run on linux
-			cd ~/mmogo
+			mkdir /opt/mmogo
+			mv mmogo.jar /opt/mmogo
+			cd /opt/mmogo
 			java -jar mmogo.jar
 -->
 	<packaging>jar</packaging>

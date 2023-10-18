@@ -1,19 +1,32 @@
-# MongoDB CRUD Java Demo
+# mmogo
 
-Demo with SpringMVC & SpringBoot & Thymeleaf
+Java CRUD With MongoDB Demo
 
-    Java 17
+    Backend : 
+        Java 17 lts  &  SpringMVC 
+        SpringBoot   &  Spring Data  &  Maven 
+
+    Frontend :
+        Thymeleaf , Jquery , Boostrap
+
+    Database :
+        MongoDB 6.0.6 
     
-    MongoDB 6.0.6 
-    
-    PostMan
-        Export/Import with collection v2.1
+    Others :
+        MongoDB Compass
+        Virtualbox
+        Intellij
+        PostMan 
+        Docker
+        Git
+        
+        
 
 Api Operate
 
     MongoJDBC
         http://127.0.0.1:8085/crud 
-            operate with postman collection
+            operate with postman collection (Export/Import with collection v2.1)
     
     MongoRepository
     MongoTemplate
