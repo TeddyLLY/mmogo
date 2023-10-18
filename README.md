@@ -44,5 +44,5 @@ Api Operate
 
 User Manual
 
-    ~/mmogo/src/main/resources/script/mongo/user_manual
+    ~/mmogo/src/main/script/mongo/user_manual
 
