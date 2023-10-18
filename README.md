@@ -24,3 +24,9 @@ Api Operate
 User Manual
 
     ~/mmogo/src/main/java/jdbc/mongodb/script/user_manual
+
+
+------------------------------------
+Demo Website
+
+http://114.34.166.165:8085
