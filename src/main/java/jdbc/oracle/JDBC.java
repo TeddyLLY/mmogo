@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class JDBC {
     public static void main(String[] args) {
-        String jdbcUrl = "jdbc:oracle:thin:@//localhost:1521/test";
+        String jdbcUrl = "jdbc:oracle:thin:@//localhost:1521/FREEPDB1";
         String username = "root";
         String password = "1qaz@WSX";
 
@@ -19,7 +19,7 @@ public class JDBC {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             // Set parameters
-            preparedStatement.setString(1, "teddy");
+            preparedStatement.setString(1, "Teddy");
 
             // Execute the query
             ResultSet rs = preparedStatement.executeQuery();
