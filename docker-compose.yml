@@ -10,6 +10,13 @@
   #關閉並刪除
   #docker-compose down
 
+  #啟動 container terminal
+  #docker exec -it <container_name> /bin/bash
+  #單獨啟動 container
+  #docker run -it redhat/ubi8
+  #宿主機 copy 到 container
+  #docker cp /Volumes/C/CentOS-Base.repo 1a42f6d61b44:/etc/yum.repos.d
+
 
 #################### SingleAlone With Auth ####################
 version: '3.5'
