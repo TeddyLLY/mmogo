@@ -35,3 +35,7 @@ build/
 
 ### lan ###
 *.* linguist-language=java
+
+
+### log ###
+*.log
