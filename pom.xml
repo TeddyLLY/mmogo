@@ -9,10 +9,13 @@
 			mvn package
 
 		run on linux
-			mkdir /opt/mmogo
-			mv mmogo.jar /opt/mmogo
-			cd /opt/mmogo
-			java -jar mmogo.jar
+				mkdir /opt/mmogo
+				mv mmogo.jar /opt/mmogo
+				cd /opt/mmogo
+			# work with jar
+				java -jar mmogo.jar
+			# work with daemon
+				nohup java -jar mmogo.jar &
 -->
 	<packaging>jar</packaging>
 	<name>mmogo</name>
