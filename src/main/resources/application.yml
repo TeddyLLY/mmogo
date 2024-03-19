@@ -75,4 +75,7 @@ spring:
 
 #####  正在用的
 #  Ops Manager mongod Service
-      uri: "mongodb://root:root@poc1.mongo.com:27017,poc2.mongo.com:27017,poc3.mongo.com:27017/test?authSource=admin&replicaSet=myReplicaSetRemote"
+#  replica set
+#      uri: "mongodb://root:root@poc1.mongo.com:27017,poc2.mongo.com:27017,poc3.mongo.com:27017/demo?authSource=admin&replicaSet=myReplicaSetRemote"
+#  sharding
+      uri: "mongodb://root:root@poc5.mongo.com:7007,poc5.mongo.com:7008/demo?authSource=admin&tls=false&authMechanism=SCRAM-SHA-256"
