@@ -23,6 +23,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<java.version>17</java.version>
@@ -63,14 +64,12 @@
 			<version>${spring-boot.version}</version>
 		</dependency>
 
-
 		<!-- Spring MVC Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 			<version>${spring-boot.version}</version>
 		</dependency>
-
 
 		<!-- thymeleaf -->
 		<dependency>
@@ -79,14 +78,12 @@
 			<version>${spring-boot.version}</version>
 		</dependency>
 
-
 		<!--spring mongodb jpa-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 			<version>${spring-boot.version}</version>
 		</dependency>
-
 
 		<!-- Servlet -->
 		<dependency>
@@ -95,7 +92,6 @@
 			<version>2.5</version>
 		</dependency>
 
-
 		<!-- junit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -103,14 +99,12 @@
 			<version>3.8.1</version>
 		</dependency>
 
-
 		<!-- https://mvnrepository.com/artifact/org.jetbrains/annotations -->
 		<dependency>
 			<groupId>org.jetbrains</groupId>
 			<artifactId>annotations</artifactId>
 			<version>24.0.1</version>
 		</dependency>
-
 
 		<!--json-->
 		<dependency>
@@ -130,29 +124,12 @@
 			<version>20230227</version>
 		</dependency>
 
-
 		<!--JDBC DRIVER-->
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.26</version>
-		</dependency>
-
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongodb-driver-sync</artifactId>
 			<version>4.9.1</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
-		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
-			<artifactId>ojdbc11</artifactId>
-			<version>23.2.0.0</version>
-		</dependency>
-
-
 	</dependencies>
 
 </project>
