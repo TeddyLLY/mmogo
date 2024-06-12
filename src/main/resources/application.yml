@@ -60,7 +60,7 @@ spring:
 #      uri: mongodb://root:root@127.0.0.1:27017/demo
 
 #####   cloud atlas 生成的uri
-#      uri: mongodb+srv://root:root@cloud-cluster0.prhwadb.mongodb.net/demo?retryWrites=true&w=majority
+      uri: mongodb+srv://root:root@cloud-cluster0.prhwadb.mongodb.net/demo?retryWrites=true&w=majority
 
 #####   docker Standalone & cluster
 #      uri: mongodb://localhost:27010/demo
@@ -78,4 +78,4 @@ spring:
 #  replica set
 #      uri: "mongodb://root:root@poc1.mongo.com:27017,poc2.mongo.com:27017,poc3.mongo.com:27017/demo?authSource=admin&replicaSet=myReplicaSetRemote"
 #  sharding
-      uri: "mongodb://root:root@poc5.mongo.com:7007,poc5.mongo.com:7008/demo?authSource=admin&tls=false&authMechanism=SCRAM-SHA-256"
+#      uri: "mongodb://root:root@poc5.mongo.com:7007,poc5.mongo.com:7008/demo?authSource=admin&tls=false&authMechanism=SCRAM-SHA-256"
