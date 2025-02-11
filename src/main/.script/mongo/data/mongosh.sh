@@ -42,3 +42,28 @@ for (let i = 0; i < 100; i++) {
   db.employee3.insertMany(jsonArray);
 }
 
+
+# mongoimport with json
+sudo yum install -y epel-release
+sudo yum install -y nodejs npm
+
+sudo npm install -g mgeneratejs
+
+mgeneratejs --version
+mgeneratejs --help
+
+mgeneratejs -n 1000000
+ '[{
+   "first_name": "$name",
+   "last_name": "$name",
+   "job": {"$pick": ["Senior Developer","Junior Developer","Intern","PM","QA","DevOps","UI/UX Designer","DBA","SA","Sales","HR"]},
+   "salary": {"$number": {"min": 28000, "max": 1000000}},
+   "internship": {"$pick": [ "true", "false" ]},
+   "regular_date": "$date",
+   "email": "$email",
+   "insert_date": "$now"
+ }]'
+ | mongoimport -d demo -c employee4
+
+
+

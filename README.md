@@ -5,7 +5,7 @@ Java CRUD With MongoDB Demo
 ------------------------------------
 Demo Website
 
-http://114.34.166.165:8085
+http://<your_ip>:8085
 
 ------------------------------------
 Project Detail
