@@ -11,7 +11,7 @@ public class JDBC {
 
     public static void main(String[] args) {
         // MongoDB connect uri
-        String connectionString = "mongodb+srv://root:root@cloud-cluster0.prhwadb.mongodb.net/demo?retryWrites=true&w=majority";
+        String connectionString = "mongodb+srv://root:root@cluster0.f5hssne.mongodb.net/demo?appName=Cluster0&retryWrites=true&w=majority";
 
         // create MongoClient
         MongoClient mongoClient = new MongoClientImpl(

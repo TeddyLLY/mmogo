@@ -43,24 +43,21 @@ spring:
     mongodb:
       database: demo
       authentication-database: admin
-# ver 2.4 前連線資訊用這個
-      host: 127.0.0.1
-      port: 27017
-      username: root
-      password: root
 
-# ver 2.4 以後用 uri string 連接 (Template && Repository && JDBC)
+## ----------------------------------------------------------------
+## ver 2.4 以後用 uri string 連接 (Template && Repository && JDBC)
+
+#####   atlas cloud 生成的 uri (free tier)
+      uri: mongodb+srv://root:root@cluster0.f5hssne.mongodb.net/demo?appName=Cluster0&retryWrites=true&w=majority
+
 #####   local Standalone db 有密碼與無密碼連接方式
-#####      DB啟動參考指令
-#####         有密碼：
-#####            mongod --auth --dbpath "/Users/teddylai/database/mongo/mongodb/data" --logpath "/Users/teddylai/database/mongo/mongodb/log/mongo.log" --fork
-#####         沒密碼：
-#####            mongod --dbpath "/Users/teddylai/database/mongo/mongodb/data" --logpath "/Users/teddylai/database/mongo/mongodb/log/mongo.log" --fork
+##         DB啟動參考指令
+##            有密碼：
+##               mongod --auth --dbpath "/Users/teddylai/database/mongo/mongodb/data" --logpath "/Users/teddylai/database/mongo/mongodb/log/mongo.log" --fork
+##            沒密碼：
+##               mongod --dbpath "/Users/teddylai/database/mongo/mongodb/data" --logpath "/Users/teddylai/database/mongo/mongodb/log/mongo.log" --fork
 #      uri: mongodb://localhost:27017/demo
 #      uri: mongodb://root:root@127.0.0.1:27017/demo
-
-#####   cloud atlas 生成的uri
-      uri: mongodb+srv://root:root@cloud-cluster0.prhwadb.mongodb.net/demo?retryWrites=true&w=majority
 
 #####   docker Standalone & cluster
 #      uri: mongodb://localhost:27010/demo
@@ -70,12 +67,14 @@ spring:
 #      uri: mongodb://root:root@localhost:17010/demo?authSource=admin
 #      uri: mongodb://mongo11:17011,mongo12:17012,mongo13:17013/demo?replicaSet=myReplicaSet
 
-#####   linux vm cluster
+#####   vbox vm (ubuntu) replica set cluster
 #      uri: "mongodb://root:root@mongo0.replset.member:37010,mongo1.replset.member:37011,mongo2.replset.member:37012/demo?authSource=admin&replicaSet=mongoCluster"
 
-#####  正在用的
-#  Ops Manager mongod Service
-#  replica set
-#      uri: "mongodb://root:root@poc1.mongo.com:27017,poc2.mongo.com:27017,poc3.mongo.com:27017/demo?authSource=admin&replicaSet=myReplicaSetRemote"
-#  sharding
+#####  MongoDB on-prem cluster
+##  Ops Manager mongod Service
+
+##  replica set
+#      uri: "mongodb://root:root@poc11.mongo.com:7017,poc22.mongo.com:7017,poc33.mongo.com:7017/demo?authSource=admin&replicaSet=myReplicaSet&authMechanism=SCRAM-SHA-256&tls=true&tlsAllowInvalidCertificates=true&tlsCAFile=/etc/ssl/mmongo_server.pem&tlsCertificateKeyFile=/etc/ssl/mmongo_server.pem"
+
+##  sharding
 #      uri: "mongodb://root:root@poc5.mongo.com:7007,poc5.mongo.com:7008/demo?authSource=admin&tls=false&authMechanism=SCRAM-SHA-256"

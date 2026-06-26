@@ -32,12 +32,10 @@ public class CommandJDBCDAO {
     MongoDBConfig mongoDBConfig;
 
 
-
-
     public String getResultByCommand(Command command) throws Exception{
 
         //connect
-        MongoClient mongoClient = connectDB();
+        MongoClient mongoClient = mongoDBConfig.connectDB();
         
         try {
             MongoDatabase mongoDatabase = mongoClient.getDatabase(command.getDbName());
@@ -71,14 +69,6 @@ public class CommandJDBCDAO {
             mongoClient.close();
         }
 
-    }
-
-    private MongoClient connectDB() throws Exception{
-        MongoClient mongoClient = new MongoClientImpl(
-                MongoClientSettings.builder().applyConnectionString
-                        (new ConnectionString(mongoDBConfig.getUri())).build(),null
-        );
-        return mongoClient;
     }
 
 

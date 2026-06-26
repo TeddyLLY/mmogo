@@ -1,5 +1,9 @@
 package com.smart.mmogo.core.global;
 
+import com.mongodb.ConnectionString;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.internal.MongoClientImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,14 +25,6 @@ public class MongoDBConfig {
     private String database;
     @Value("${spring.data.mongodb.authentication-database}")
     private String acDatabase;
-    @Value("${spring.data.mongodb.host}")
-    private String host;
-    @Value("${spring.data.mongodb.port}")
-    private Integer port;
-    @Value("${spring.data.mongodb.username}")
-    private String username;
-    @Value("${spring.data.mongodb.password}")
-    private String password;
     @Value("${spring.data.mongodb.uri}")
     private String uri;
 
@@ -43,59 +39,16 @@ public class MongoDBConfig {
         return new MongoTemplate(mongoDBFactory,mappingConverter);
     }
 
-    public String getDatabase() {
-        return database;
-    }
-
-    public void setDatabase(String database) {
-        this.database = database;
-    }
-
-    public String getAcDatabase() {
-        return acDatabase;
-    }
-
-    public void setAcDatabase(String acDatabase) {
-        this.acDatabase = acDatabase;
-    }
-
-    public String getHost() {
-        return host;
-    }
-
-    public void setHost(String host) {
-        this.host = host;
-    }
-
-    public Integer getPort() {
-        return port;
-    }
-
-    public void setPort(Integer port) {
-        this.port = port;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public MongoClient connectDB() throws Exception{
+        MongoClient mongoClient = new MongoClientImpl(
+                MongoClientSettings.builder().applyConnectionString
+                        (new ConnectionString(getUri())).build(),null
+        );
+        return mongoClient;
     }
 
     public String getUri() {
         return uri;
     }
 
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
 }
