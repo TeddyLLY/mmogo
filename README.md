@@ -6,7 +6,7 @@ A full-stack Java CRUD demonstration project integrating Spring Boot and MongoDB
 
 ## 🌐 Demo Website
 
-Experience the live demo here: **[mmogo.nekosaur.com](http://mmogo.nekosaur.com)**
+Experience the live demo here: **[mmogo.nekosaur.dev](http://mmogo.nekosaur.dev)**
 
 ---
 
